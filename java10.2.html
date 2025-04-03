@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все задания</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: linear-gradient(135deg, #f3f3f3, #e0e0e0);
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #444;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .task {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+
+        input,
+        button,
+        textarea {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        li {
+            list-style: none;
+            padding: 5px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Все задания</h1>
+
+    <div class="task">
+        <h2>1-3. Форма регистрации</h2>
+        <input type="text" id="name" placeholder="Имя">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Пароль">
+        <button onclick="validateForm()">Отправить</button>
+        <div id="formMessage"></div>
+    </div>
+
+    <div class="task">
+        <h2>4-5. Опрос</h2>
+        <p>Какой ваш любимый цвет?</p>
+        <label><input type="radio" name="color" value="red"> Красный</label>
+        <label><input type="radio" name="color" value="blue"> Синий</label>
+        <label><input type="radio" name="color" value="green"> Зелёный</label>
+        <button onclick="submitSurvey()">Отправить</button>
+        <div id="surveyMessage"></div>
+    </div>
+
+    <div class="task">
+        <h2>6-7. Список задач</h2>
+        <input type="text" id="task" placeholder="Новая задача">
+        <button onclick="addTask()">Добавить</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <div class="task">
+        <h2>8. Таймер</h2>
+        <div id="timer">00:00:00</div>
+    </div>
+
+    <div class="task">
+        <h2>9. Слайдер изображений</h2>
+        <img id="slider" src="img/cart-item1.jpg">
+        <button onclick="prevImage()">Назад</button>
+        <button onclick="nextImage()">Вперед</button>
+    </div>
+
+    <div class="task">
+        <h2>10. Блог</h2>
+        <input type="text" id="blogTitle" placeholder="Заголовок">
+        <textarea id="blogContent" placeholder="Текст"></textarea>
+        <button onclick="addBlogPost()">Добавить запись</button>
+        <div id="blogPosts"></div>
+    </div>
+
+    <script>
+        // Форма регистрации
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("formMessage");
+
+            if (!name || !email.includes("@") || password.length < 6) {
+                message.textContent = "Некорректные данные";
+                message.style.color = "red";
+            } else {
+                message.textContent = "Регистрация успешна";
+                message.style.color = "green";
+            }
+        }
+
+        // Опрос
+        function submitSurvey() {
+            const selected = document.querySelector("input[name='color']:checked");
+            const message = document.getElementById("surveyMessage");
+
+            if (selected) {
+                switch (selected.value) {
+                    case "red": message.textContent = "Вы выбрали Красный"; break;
+                    case "blue": message.textContent = "Вы выбрали Синий"; break;
+                    case "green": message.textContent = "Вы выбрали Зелёный"; break;
+                }
+                message.style.color = "blue";
+            } else {
+                message.textContent = "Выберите цвет";
+                message.style.color = "red";
+            }
+        }
+
+        // Список задач
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        function addTask() {
+            const task = document.getElementById("task").value;
+            if (task) {
+                tasks.push(task);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+                renderTasks();
+                document.getElementById("task").value = "";
+            }
+        }
+        function renderTasks() {
+            const list = document.getElementById("taskList");
+            list.innerHTML = "";
+            tasks.forEach((t) => {
+                const li = document.createElement("li");
+                li.textContent = t;
+                list.appendChild(li);
+            });
+        }
+        renderTasks();
+
+        // Таймер
+        let time = 3600;
+        function startTimer() {
+            setInterval(() => {
+                if (time > 0) {
+                    time--;
+                    document.getElementById("timer").textContent = new Date(time * 1000).toISOString().substring(11, 19);
+                }
+            }, 1000);
+        }
+        startTimer();
+
+        // Слайдер
+        let images = ["img/cart-item1.jpg", "img/cart-item3.jpg", "img/cart-item4.jpg"];
+        let currentImage = 0;
+        function nextImage() {
+            currentImage = (currentImage + 1) % images.length;
+            document.getElementById("slider").src = images[currentImage];
+        }
+        function prevImage() {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            document.getElementById("slider").src = images[currentImage];
+        }
+
+        // Блог
+        function addBlogPost() {
+            const title = document.getElementById("blogTitle").value;
+            const content = document.getElementById("blogContent").value;
+            if (title && content) {
+                const post = `<div><h3>${title}</h3><p>${content}</p><small>${new Date().toLocaleDateString()}</small></div>`;
+                document.getElementById("blogPosts").innerHTML += post;
+                document.getElementById("blogTitle").value = "";
+                document.getElementById("blogContent").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

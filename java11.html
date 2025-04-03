@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инженерный калькулятор</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #display {
+            width: 100%;
+            height: 50px;
+            background-color: #222;
+            color: #fff;
+            border: none;
+            text-align: right;
+            padding: 10px;
+            font-size: 24px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #history {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendToDisplay('(')">(</button>
+            <button onclick="appendToDisplay(')')">)</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="sqrt()">√</button>
+            <button onclick="power()">^</button>
+            <button onclick="sin()">sin</button>
+            <button onclick="cos()">cos</button>
+            <button onclick="convertToBin()">Bin</button>
+            <button onclick="convertToHex()">Hex</button>
+        </div>
+        <div id="history"></div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+        let history = document.getElementById('history');
+
+        function appendToDisplay(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculate() {
+            try {
+                let result = eval(display.value);
+                history.innerHTML += `<div>${display.value} = ${result}</div>`;
+                display.value = result;
+            } catch (error) {
+                display.value = 'Ошибка';
+            }
+        }
+
+        function sqrt() {
+            try {
+                let result = Math.sqrt(eval(display.value));
+                history.innerHTML += `<div>√(${display.value}) = ${result}</div>`;
+                display.value = result;
+            } catch (error) {
+                display.value = 'Ошибка';
+            }
+        }
+
+        function power() {
+            try {
+                let result = Math.pow(eval(display.value), 2);
+                history.innerHTML += `<div>(${display.value})^2 = ${result}</div>`;
+                display.value = result;
+            } catch (error) {
+                display.value = 'Ошибка';
+            }
+        }
+
+        function sin() {
+            try {
+                let result = Math.sin(eval(display.value));
+                history.innerHTML += `<div>sin(${display.value}) = ${result}</div>`;
+                display.value = result;
+            } catch (error) {
+                display.value = 'Ошибка';
+            }
+        }
+
+        function cos() {
+            try {
+                let result = Math.cos(eval(display.value));
+                history.innerHTML += `<div>cos(${display.value}) = ${result}</div>`;
+                display.value = result;
+            } catch (error) {
+                display.value = 'Ошибка';
+            }
+        }
+
+        function convertToBin() {
+            try {
+                let result = (eval(display.value)).toString(2);
+                history.innerHTML += `<div>Bin(${display.value}) = ${result}</div>`;
+                display.value = result;
+            } catch (error) {
+                display.value = 'Ошибка';
+            }
+        }
+
+        function convertToHex() {
+            try {
+                let result = (eval(display.value)).toString(16);
+                history.innerHTML += `<div>Hex(${display.value}) = ${result}</div>`;
+                display.value = result;
+            } catch (error) {
+                display.value = 'Ошибка';
+            }
+        }
+    </script>
+</body>
+
+</html>

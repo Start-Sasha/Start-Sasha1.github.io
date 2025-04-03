@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №9</title>
+    <linK rel="stylesheet" href="css/java-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="big">Лабораторная работа №9</h1>
+        <div class="element">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Условие</th>
+                    <th>Код</th>
+                    <th>Действие</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="left-align">Доступ к свойствам</td>
+                    <td class="left-align">
+                        <pre>
+Через точку: person.name
+Через квадратные скобки: person["name"]</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="left-align">Изменение значений свойств</td>
+                    <td class="left-align">
+                        <pre>
+person.age = 31;
+person["name"] = "Петр";</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="left-align">Добавление новых свойств</td>
+                    <td class="left-align">
+                        <pre>
+person.city = "Москва";
+person["email"] = "ivan@example.com";</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="left-align">Удаление свойств</td>
+                    <td class="left-align">
+                        <pre>
+delete person.isStudent;</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="left-align">Проверка существования свойства</td>
+                    <td class="left-align">
+                        <pre>
+console.log("name" in person); // true</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="left-align">Перебор всех свойств объекта</td>
+                    <td class="left-align">
+                        <pre>
+for (let key in person) {
+    console.log(`${key}: ${person[key]}`);
+}</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="left-align">Получение массивов ключей и значений</td>
+                    <td class="left-align">
+                        <pre>
+let keys = Object.keys(person);
+let values = Object.values(person);</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="left-align">Создание копии объекта</td>
+                    <td class="left-align">
+                        <pre>
+let personCopy = Object.assign({}, person);
+let anotherCopy = { ...person };</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="left-align">Работа с вложенными объектами</td>
+                    <td class="left-align">
+                        <pre>
+person.address = {
+    city: "Москва",
+    street: "Ленина"
+};</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="left-align">Деструктуризация</td>
+                    <td class="left-align">
+                        <pre>
+let { name, age } = person</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="left-align">1. Создайте объект car с свойствами brand, model, year</td>
+                    <td class="left-align">
+                        <pre>
+let car = {
+    brand: "Toyota",
+    model: "Corolla",
+    year: 2015
+};</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="left-align">2. Измените значение свойства year на текущий год</td>
+                    <td class="left-align">
+                        <pre>
+car.year = new Date().getFullYear();</pre>
+
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="left-align">3. Добавьте новое свойство color</td>
+                    <td class="left-align">
+                        <pre>
+car.color = "red";</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td class="left-align">4. Удалите свойство model</td>
+                    <td class="left-align">
+                        <pre>
+delete car.model;</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td class="left-align">5. Проверьте, существует ли свойство brand</td>
+                    <td class="left-align">
+                        <pre>
+console.log("brand" in car); // true</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td class="left-align">6. Переберите все свойства объекта и выведите их в консоль</td>
+                    <td class="left-align">
+                        <pre>
+for (let key in car) {
+    console.log(`${key}: ${car[key]}`);
+}</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td class="left-align">7. Создайте копию объекта car и измените цвет в копии</td>
+                    <td class="left-align">
+                        <pre>
+let carCopy = { ...car };
+carCopy.color = "blue";
+console.log(car, carCopy); // Оригинал и копия с разными цветами</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td class="left-align">8. Создайте вложенный объект owner с полями name и age</td>
+                    <td class="left-align">
+                        <pre>
+car.owner = {
+    name: "John",
+    age: 30
+};</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td class="left-align">9. Используйте деструктуризацию для извлечения имени владельца</td>
+                    <td class="left-align">
+                        <pre>
+const { owner: { name } } = car;
+console.log(name); // "John"</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td class="left-align">10. Получите массив ключей и значений объекта car</td>
+                    <td class="left-align">
+                        <pre>
+console.log(Object.keys(car)); // ['brand', 'year', 'color', 'owner']
+console.log(Object.values(car)); // ['Toyota', 2025, 'red', { name: 'John', age: 30 }]
+console.log(Object.entries(car)); // [['brand', 'Toyota'], ['year', 2025], ['color', 'red'], ['owner', {...}]]</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td class="left-align">Полный код</td>
+                    <td class="left-align">
+                        <pre>
+let car = {
+    brand: "Toyota",
+    model: "Corolla",
+    year: 2015
+};
+car.year = new Date().getFullYear();
+car.color = "red";
+delete car.model;
+console.log("brand" in car); // true
+for (let key in car) {
+    console.log(`${key}: ${car[key]}`);
+}
+let carCopy = { ...car };
+carCopy.color = "blue";
+console.log("Оригинал:", car);
+console.log("Копия:", carCopy);
+car.owner = {
+    name: "John",
+    age: 30
+};
+const { owner: { name } } = car;
+console.log("Имя владельца:", name);
+console.log("Ключи объекта:", Object.keys(car));
+console.log("Значения объекта:", Object.values(car));
+console.log("Ключи и значения объекта:", Object.entries(car));</pre>
+                    </td>
+                    <td>
+                        <a href="java9.2.html" target="_blank"><button>Выполнить</button></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

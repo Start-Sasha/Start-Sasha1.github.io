@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №3</title>
+    <linK rel="stylesheet" href="css/java-style.css">
+    <style>
+        .button-style {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff0000;
+            background: #89f3f3;
+            width: 20px;
+            margin: 3px;
+        }
+
+        .span-style {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="big">Лабораторная работа №3</h1>
+        <div class="element">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Условие</th>
+                    <th>Код</th>
+                    <th>Действие</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="left-align">
+                        <b>Описание работы:</b>
+                        В данной лабораторной работе мы создадим HTML-страницу с несколькими счетчиками и
+                        кнопками для их изменения. Мы будем использовать JavaScript для обработки событий нажатия
+                `       кнопок и изменения значений счетчиков</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;
+
+    &lt;script&gt;
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.getElementsByName('counter');
+            const incButtons = document.getElementsByName('inc');
+            const decButtons = document.getElementsByName('dec');
+            // Обработчики для кнопок увеличения
+            for (let i = 0; i < incButtons.length; i++) {
+                incButtons[i].addEventListener('click', function() {
+                    const currentValue = parseInt(counters[i].innerHTML);
+                    counters[i].innerHTML = currentValue + 1;
+                });
+            }
+            // Обработчики для кнопок уменьшения
+            for (let j = 0; j < decButtons.length; j++) {
+                decButtons[j].addEventListener('click', function() {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue - 1;
+                });
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button name="dec">-</button>
+                        <span name="counter">0</span>
+                        <button name="inc">+</button><br>
+                        <button name="dec">-</button>
+                        <span name="counter">0</span>
+                        <button name="inc">+</button><br>
+                        <button name="dec">-</button>
+                        <span name="counter">0</span>
+                        <button name="inc">+</button><br>
+                        <button name="dec">-</button>
+                        <span name="counter">0</span>
+                        <button name="inc">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="left-align">Версия кода под className</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter');
+        const incButtons = document.getElementsByClassName('inc');
+        const decButtons = document.getElementsByClassName('dec');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="left-align">Как вы можете изменить значение счетчика с помощью JavaScript?
+                        Приведите пример кода.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;span id="count"&gt;100&lt;/span&gt;
+    &lt;button onclick="Counter()"&gt;+&lt;/button&gt;
+
+    &lt;script&gt;
+        function Counter() {
+            let counterElement = document.getElementById("count");
+            let currentValue = parseInt(counterElement.innerHTML);
+            counterElement.innerHTML = currentValue + 1;
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <span id="count">0</span>
+                        <button onclick="Counter()">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="left-align">Как вы можете использовать addEventListener для добавления обработчиков событий на
+                        кнопки? Приведите пример.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button id="event_button"&gt;Выполнить addEventListener&lt;/button&gt;
+
+    &lt;script&gt;
+        let event_button = document.getElementById('event_button');
+        event_button.addEventListener('click', function() {
+            alert('addEventListener работает!');
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td><button id="event_button">Выполнить addEventListener</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="left-align">Как вы можете улучшить код, чтобы избежать потенциальных ошибок при работе с
+                        элементами DOM?</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button name="dec2"&gt;-&lt;/button&gt;
+    &lt;span name="counter2"&gt;0&lt;/span&gt;
+    &lt;button name="inc2"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec2"&gt;-&lt;/button&gt;
+    &lt;span name="counter2"&gt;0&lt;/span&gt;
+    &lt;button name="inc2"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec2"&gt;-&lt;/button&gt;
+    &lt;span name="counter2"&gt;0&lt;/span&gt;
+    &lt;button name="inc2"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec2"&gt;-&lt;/button&gt;
+    &lt;span name="counter2"&gt;0&lt;/span&gt;
+    &lt;button name="inc2"&gt;+&lt;/button&gt;
+
+    &lt;script&gt;
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.getElementsByName('counter2');
+        const incButtons = document.getElementsByName('inc2');
+        const decButtons = document.getElementsByName('dec2');
+
+        function updateCounter(index, delta) {
+            const currentValue = parseInt(counters[index].innerHTML, 10);
+            if (!isNaN(currentValue)) {
+                counters[index].innerHTML = currentValue + delta;
+            } 
+            else {
+            console.error('Invalid counter value at index ' + index);
+            }
+        }
+
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                updateCounter(i, 1);
+            });
+        }
+
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                updateCounter(j, -1);
+            });
+        }
+    });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button name="dec2">-</button>
+                        <span name="counter2">0</span>
+                        <button name="inc2">+</button><br>
+                        <button name="dec2">-</button>
+                        <span name="counter2">0</span>
+                        <button name="inc2">+</button><br>
+                        <button name="dec2">-</button>
+                        <span name="counter2">0</span>
+                        <button name="inc2">+</button><br>
+                        <button  name="dec2">-</button>
+                        <span name="counter2">0</span>
+                        <button name="inc2">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="left-align">Как вы можете использовать CSS для стилизации счетчиков и кнопок на странице?</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        .button-style {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff0000;
+            background: #89f3f3;
+            width: 20px;
+            margin: 3px;
+        }
+
+        .span-style {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff0000;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec"&gt;-&lt;/button&gt;
+    &lt;span name="counter"&gt;0&lt;/span&gt;
+    &lt;button name="inc"&gt;+&lt;/button&gt;
+
+    &lt;script&gt;
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.getElementsByName('counter');
+            const incButtons = document.getElementsByName('inc');
+            const decButtons = document.getElementsByName('dec');
+            // Обработчики для кнопок увеличения
+            for (let i = 0; i < incButtons.length; i++) {
+                incButtons[i].addEventListener('click', function() {
+                    const currentValue = parseInt(counters[i].innerHTML);
+                    counters[i].innerHTML = currentValue + 1;
+                });
+            }
+            // Обработчики для кнопок уменьшения
+            for (let j = 0; j < decButtons.length; j++) {
+                decButtons[j].addEventListener('click', function() {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue - 1;
+                });
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="button-style" name="dec">-</button>
+                        <span class="span-style" name="counter">0</span>
+                        <button class="button-style" name="inc">+</button><br>
+                        <button class="button-style" name="dec">-</button>
+                        <span class="span-style" name="counter">0</span>
+                        <button class="button-style" name="inc">+</button><br>
+                        <button class="button-style" name="dec">-</button>
+                        <span class="span-style" name="counter">0</span>
+                        <button class="button-style" name="inc">+</button><br>
+                        <button class="button-style" name="dec">-</button>
+                        <span class="span-style" name="counter">0</span>
+                        <button class="button-style" name="inc">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="left-align">Как можно расширить функциональность данной страницы, добавив новые элементы или
+                        функции?</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button name="dec3"&gt;-&lt;/button&gt;
+    &lt;span name="counter3"&gt;0&lt;/span&gt;
+    &lt;button name="inc3"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec3"&gt;-&lt;/button&gt;
+    &lt;span name="counter3"&gt;0&lt;/span&gt;
+    &lt;button name="inc3"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec3"&gt;-&lt;/button&gt;
+    &lt;span name="counter3"&gt;0&lt;/span&gt;
+    &lt;button name="inc3"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button name="dec3"&gt;-&lt;/button&gt;
+    &lt;span name="counter3"&gt;0&lt;/span&gt;
+    &lt;button name="inc3"&gt;+&lt;/button&gt;&lt;br&gt;
+
+    &lt;br&gt;
+    &lt;input type="number" id="setValue" placeholder="Введите значение"&gt;
+    &lt;button id="set"&gt;Установить значение&lt;/button&gt;
+    &lt;div id="total"&gt;Общая сумма: 0&lt;/div&gt;
+
+    &lt;script&gt;
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.getElementsByName('counter3');
+        const incButtons = document.getElementsByName('inc3');
+        const decButtons = document.getElementsByName('dec3');
+        const setValueInput = document.getElementById('setValue');
+        const setButton = document.getElementById('set');
+        const totalDisplay = document.getElementById('total');
+
+        function updateTotal() {
+            let total = 0;
+            for (let i = 0; i < counters.length; i++) {
+                total += parseInt(counters[i].innerHTML, 10) || 0;
+            }
+            totalDisplay.innerHTML = 'Общая сумма: ' + total;
+        }
+
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML, 10) || 0;
+                counters[i].innerHTML = currentValue + 1;
+                updateTotal();
+            });
+        }
+
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML, 10) || 0;
+                counters[j].innerHTML = Math.max(currentValue - 1, 0); // не даем уйти ниже 0
+                updateTotal();
+            });
+        }
+
+        // Обработчик для установки произвольного значения
+        setButton.addEventListener('click', function() {
+            const newValue = parseInt(setValueInput.value, 10);
+            if (!isNaN(newValue)) {
+                for (let m = 0; m < counters.length; m++) {
+                    counters[m].innerHTML = newValue &gt>= 0 ? newValue : 0; // ограничиваем значения
+                }
+                updateTotal();
+            }
+        });
+        updateTotal(); // Обновление общей суммы при загрузке
+    });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button name="dec3">-</button>
+                        <span name="counter3">0</span>
+                        <button name="inc3">+</button><br>
+                        <button name="dec3">-</button>
+                        <span name="counter3">0</span>
+                        <button name="inc3">+</button><br>
+                        <button name="dec3">-</button>
+                        <span name="counter3">0</span>
+                        <button name="inc3">+</button><br>
+                        <button name="dec3">-</button>
+                        <span name="counter3">0</span>
+                        <button name="inc3">+</button><br>
+                        <br>
+                        <input type="number" id="setValue" placeholder="Введите значение">
+                        <button id="set">Установить значение</button>
+                        <div id="total">Общая сумма: 0</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="left-align">Добавление кнопки сброса</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const resetButtons = document.getElementsByName('reset-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+        
+        // Функционал кнопки сброса
+        for (let i = 0; i < resetButtons.length; i++) {
+            resetButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    counters[j].innerHTML = 0;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="reset-class">Сбросить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="left-align">Добавление кнопки установки значения 5</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const setValueButtons = document.getElementsByName('set-value-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки установить значение
+        for (let i = 0; i < setValueButtons.length; i++) {
+            setValueButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    counters[j].innerHTML = 5;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="set-value-class">Установить значение 5</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="left-align">Добавление кнопки удвоения значения</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const doubleValueButtons = document.getElementsByName('double-value-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки удвоения
+        for (let i = 0; i < doubleValueButtons.length; i++) {
+            doubleValueButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue * 2;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="double-value-class">Удвоить значение</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="left-align">Добавление кнопки деления значения на 2</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const halfValueButtons = document.getElementsByName('half-value-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки деления на 2
+        for (let i = 0; i < halfValueButtons.length; i++) {
+            halfValueButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = Math.floor(currentValue / 2);
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="half-value-class">Поделить значение на 2</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="left-align">Добавление кнопки увеличения значения на 3</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const incrementByButtons = document.getElementsByName('increment-by-class');
+        const incrementValue = 3;
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки увеличение на значение
+        for (let i = 0; i < incrementByButtons.length; i++) {
+            incrementByButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue + incrementValue;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="increment-by-class">Увеличить значение на 3</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="left-align">Добавление кнопки уменьшения значения на 2</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const decrementByButtons = document.getElementsByName('decrement-by-class');
+        const decrementValue = 2;
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки уменьшение на значение
+        for (let i = 0; i < decrementByButtons.length; i++) {
+            decrementByButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue - decrementValue;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="decrement-by-class">Уменьшить значение на 2</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td class="left-align">Добавление кнопки квадрата значения</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const squareButtons = document.getElementsByName('square-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки квадратирования
+        for (let i = 0; i < squareButtons.length; i++) {
+            squareButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue * currentValue;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="square-class">Квадрат значения</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td class="left-align">Добавление кнопки случайного значения</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const randomValueButtons = document.getElementsByName('random-value-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки квадратирования
+        for (let i = 0; i < squareButtons.length; i++) {
+            squareButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue * currentValue;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="random-value-class">Установить случайное значение</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td class="left-align">Добавление кнопки утроения значения</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const tripleValueButtons = document.getElementsByName('triple-value-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки утроения
+        for (let i = 0; i < tripleValueButtons.length; i++) {
+            tripleValueButtons[i].addEventListener('click', function() {
+                // Здесь мы проходим по всем счетчикам и утроим каждый из них
+                for (let j = 0; j < counters.length; j++) {
+                    const currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue * 3;
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="triple-value-class">Утроить значение</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td class="left-align">Добавление кнопки переключения значения</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;&lt;br&gt;
+    &lt;button class="dec-class"&gt;-&lt;/button&gt;
+    &lt;span class="counter-class"&gt;0&lt;/span&gt;
+    &lt;button class="inc-class"&gt;+&lt;/button&gt;
+    &lt;script&gt;
+        const counters = document.getElementsByClassName('counter-class');
+        const incButtons = document.getElementsByClassName('inc-class');
+        const decButtons = document.getElementsByClassName('dec-class');
+        const toggleButtons = document.getElementsByName('toggle-button-class');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+
+        // Функционал кнопки переключения
+        for (let i = 0; i < toggleButtons.length; i++) {
+            toggleButtons[i].addEventListener('click', function() {
+                for (let j = 0; j < counters.length; j++) {
+                    let currentValue = parseInt(counters[j].innerHTML);
+                    counters[j].innerHTML = currentValue ? 0 : 1;  // Toggle between 1 and 0
+                }
+            });
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button class="dec-class">-</button>
+                        <span class="counter-class">0</span>
+                        <button class="inc-class">+</button><br>
+                        <button name="toggle-button-class">Переключить значение</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.getElementsByName('counter');
+        const incButtons = document.getElementsByName('inc');
+        const decButtons = document.getElementsByName('dec');
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML);
+                counters[i].innerHTML = currentValue + 1;
+            });
+        }
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - 1;
+            });
+        }
+    });
+
+    const counters = document.getElementsByClassName('counter-class');
+    const incButtons = document.getElementsByClassName('inc-class');
+    const decButtons = document.getElementsByClassName('dec-class');
+    const resetButtons = document.getElementsByName('reset-class');
+    const setValueButtons = document.getElementsByName('set-value-class');
+    const doubleValueButtons = document.getElementsByName('double-value-class');
+    const halfValueButtons = document.getElementsByName('half-value-class');
+    const incrementByButtons = document.getElementsByName('increment-by-class');
+    const decrementByButtons = document.getElementsByName('decrement-by-class');
+    const squareButtons = document.getElementsByName('square-class');
+    const randomValueButtons = document.getElementsByName('random-value-class');
+    const tripleValueButtons = document.getElementsByName('triple-value-class');
+    const toggleButtons = document.getElementsByName('toggle-button-class');
+    const incrementValue = 3;
+    const decrementValue = 2;
+    // Обработчики для кнопок увеличения
+    for (let i = 0; i < incButtons.length; i++) {
+        incButtons[i].addEventListener('click', function() {
+            const currentValue = parseInt(counters[i].innerHTML);
+            counters[i].innerHTML = currentValue + 1;
+        });
+    }
+    // Обработчики для кнопок уменьшения
+    for (let j = 0; j < decButtons.length; j++) {
+        decButtons[j].addEventListener('click', function() {
+            const currentValue = parseInt(counters[j].innerHTML);
+            counters[j].innerHTML = currentValue - 1;
+        });
+    }
+
+    // Функционал кнопки сброса
+    for (let i = 0; i < resetButtons.length; i++) {
+        resetButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                counters[j].innerHTML = 0;
+            }
+        });
+    }
+
+    // Функционал кнопки установить значение
+    for (let i = 0; i < setValueButtons.length; i++) {
+        setValueButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                counters[j].innerHTML = 5;
+            }
+        });
+    }
+
+    // Функционал кнопки удвоения
+    for (let i = 0; i < doubleValueButtons.length; i++) {
+        doubleValueButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue * 2;
+            }
+        });
+    }
+
+    // Функционал кнопки деления на 2
+    for (let i = 0; i < halfValueButtons.length; i++) {
+        halfValueButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = Math.floor(currentValue / 2);
+            }
+        });
+    }
+
+    // Функционал кнопки увеличение на значение
+    for (let i = 0; i < incrementByButtons.length; i++) {
+        incrementByButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue + incrementValue;
+            }
+        });
+    }
+
+    // Функционал кнопки уменьшение на значение
+    for (let i = 0; i < decrementByButtons.length; i++) {
+        decrementByButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue - decrementValue;
+            }
+        });
+    }
+
+    // Функционал кнопки квадратирования
+    for (let i = 0; i < squareButtons.length; i++) {
+        squareButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue * currentValue;
+            }
+        });
+    }
+
+    // Функционал кнопки случайное значение
+    for (let i = 0; i < randomValueButtons.length; i++) {
+        randomValueButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                counters[j].innerHTML = Math.floor(Math.random() * 100);
+            }
+        });
+    }
+
+    // Функционал кнопки утроения
+    for (let i = 0; i < tripleValueButtons.length; i++) {
+        tripleValueButtons[i].addEventListener('click', function() {
+            // Здесь мы проходим по всем счетчикам и утроим каждый из них
+            for (let j = 0; j < counters.length; j++) {
+                const currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue * 3;
+            }
+        });
+    }
+
+    // Функционал кнопки переключения
+    for (let i = 0; i < toggleButtons.length; i++) {
+        toggleButtons[i].addEventListener('click', function() {
+            for (let j = 0; j < counters.length; j++) {
+                let currentValue = parseInt(counters[j].innerHTML);
+                counters[j].innerHTML = currentValue ? 0 : 1;  // Toggle between 1 and 0
+            }
+        });
+    }
+
+    function Counter() {
+            let counterElement = document.getElementById("count");
+            let currentValue = parseInt(counterElement.innerHTML);
+            counterElement.innerHTML = currentValue + 1;
+    }
+
+    let event_button = document.getElementById('event_button');
+    event_button.addEventListener('click', function() {
+        alert('addEventListener работает!');
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.getElementsByName('counter2');
+        const incButtons = document.getElementsByName('inc2');
+        const decButtons = document.getElementsByName('dec2');
+
+        function updateCounter(index, delta) {
+            const currentValue = parseInt(counters[index].innerHTML, 10);
+            if (!isNaN(currentValue)) {
+                counters[index].innerHTML = currentValue + delta;
+            } 
+            else {
+            console.error('Invalid counter value at index ' + index);
+            }
+        }
+
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                updateCounter(i, 1);
+            });
+        }
+
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                updateCounter(j, -1);
+            });
+        }
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.getElementsByName('counter3');
+        const incButtons = document.getElementsByName('inc3');
+        const decButtons = document.getElementsByName('dec3');
+        const setValueInput = document.getElementById('setValue');
+        const setButton = document.getElementById('set');
+        const totalDisplay = document.getElementById('total');
+
+        function updateTotal() {
+            let total = 0;
+            for (let i = 0; i < counters.length; i++) {
+                total += parseInt(counters[i].innerHTML, 10) || 0;
+            }
+            totalDisplay.innerHTML = 'Общая сумма: ' + total;
+        }
+
+        // Обработчики для кнопок увеличения
+        for (let i = 0; i < incButtons.length; i++) {
+            incButtons[i].addEventListener('click', function() {
+                const currentValue = parseInt(counters[i].innerHTML, 10) || 0;
+                counters[i].innerHTML = currentValue + 1;
+                updateTotal();
+            });
+        }
+
+        // Обработчики для кнопок уменьшения
+        for (let j = 0; j < decButtons.length; j++) {
+            decButtons[j].addEventListener('click', function() {
+                const currentValue = parseInt(counters[j].innerHTML, 10) || 0;
+                counters[j].innerHTML = Math.max(currentValue - 1, 0); // не даем уйти ниже 0
+                updateTotal();
+            });
+        }
+
+        // Обработчик для установки произвольного значения
+        setButton.addEventListener('click', function() {
+            const newValue = parseInt(setValueInput.value, 10);
+            if (!isNaN(newValue)) {
+                for (let m = 0; m < counters.length; m++) {
+                    counters[m].innerHTML = newValue >= 0 ? newValue : 0; // ограничиваем значения
+                }
+                updateTotal();
+            }
+        });
+        updateTotal(); // Обновление общей суммы при загрузке
+    });
+</script>
+</html>

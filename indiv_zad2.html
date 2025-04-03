@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замена букв</title>
+</head>
+<body>
+    <textarea id="inputText" placeholder="Введите текст на английском" rows="4" cols="50"></textarea>
+    <button id="convertButton">Преобразовать</button>
+    <p id="outputText"></p>
+
+    <script>
+        const lettersMapping = {
+            'a': 'ф',
+            'b': 'и',
+            'c': 'с',        
+            'd': 'в',
+            'e': 'у',
+            'f': 'а',
+            'g': 'п',
+            'h': 'р',
+            'i': 'ш',
+            'j': 'о',
+            'k': 'л',
+            'l': 'д',
+            'm': 'ь',
+            'n': 'т',
+            'o': 'щ',
+            'p': 'з',
+            'q': 'й',
+            'r': 'к',
+            's': 'ы',
+            't': 'е',
+            'u': 'г',
+            'v': 'м',
+            'w': 'ц',
+            'x': 'ч',
+            'y': 'н',
+            'z': 'я',
+            ',': 'б',
+            '.': 'ю',
+            ';': 'ж',
+            '[': 'х',
+            ']': 'ъ',
+        };
+
+        document.querySelector('#convertButton').addEventListener('click', () => {
+            const inputText = document.querySelector('#inputText').value;
+            let outputText = '';
+
+            for (let char of inputText) {
+                outputText += lettersMapping[char] || char;
+            }
+
+            document.querySelector('#outputText').textContent = outputText;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Объект Car</title>
+</head>
+<body>
+    <h1>Объект Car</h1>
+    <div id="output"></div>
+
+    <script>
+        // Функция для вывода данных на страницу
+        function print(message) {
+            document.getElementById("output").innerHTML += message + "<br>";
+        }
+
+        // Создаём объект car
+        let car = {
+            brand: "Toyota",
+            model: "Corolla",
+            year: 2015
+        };
+
+        // Изменяем значение свойства year на текущий год
+        car.year = new Date().getFullYear();
+
+        // Добавляем новое свойство color
+        car.color = "red";
+
+        // Удаляем свойство model
+        delete car.model;
+
+        // Проверяем, существует ли свойство brand
+        print("Существует ли brand: " + ("brand" in car));
+
+        // Перебираем все свойства объекта и выводим их
+        print("<strong>Свойства объекта car:</strong>");
+        for (let key in car) {
+            print(`${key}: ${car[key]}`);
+        }
+
+        // Создаём копию объекта car и изменяем цвет в копии
+        let carCopy = { ...car };
+        carCopy.color = "blue";
+
+        print("<strong>Оригинальный объект:</strong>");
+        print(JSON.stringify(car, null, 2));
+
+        print("<strong>Копия объекта:</strong>");
+        print(JSON.stringify(carCopy, null, 2));
+
+        // Добавляем вложенный объект owner с полями name и age
+        car.owner = {
+            name: "John",
+            age: 30
+        };
+
+        // Используем деструктуризацию для извлечения имени владельца
+        const { owner: { name } } = car;
+        print("<strong>Имя владельца:</strong> " + name);
+
+        // Получаем массив ключей и значений объекта car
+        print("<strong>Ключи объекта:</strong> " + JSON.stringify(Object.keys(car)));
+        print("<strong>Значения объекта:</strong> " + JSON.stringify(Object.values(car)));
+        print("<strong>Ключи и значения объекта:</strong> " + JSON.stringify(Object.entries(car)));
+    </script>
+</body>
+</html>

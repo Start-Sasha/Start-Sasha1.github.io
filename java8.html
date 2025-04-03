@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №8</title>
+    <linK rel="stylesheet" href="css/java-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="big">Лабораторная работа №8</h1>
+        <div class="element">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Условие</th>
+                    <th>Код</th>
+                    <th>Действие</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="left-align">Сумма чисел</td>
+                    <td class="left-align">
+                        <pre>
+let sumNumbers = (numbers) => alert(numbers.reduce((acc, curr) => acc + curr, 0));
+
+sumNumbers([1, 2, 3, 4, 5])</pre>
+                    </td>
+                    <td>
+                        <button onclick="sumNumbers([1, 2, 3, 4, 5])">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="left-align">Длина строки</td>
+                    <td class="left-align">
+                        <pre>
+let getStringLength = str => alert(str.length);
+
+getStringLength("Привет, мир!")</pre>
+                    </td>
+                    <td>
+                        <button onclick='getStringLength("Привет, мир!")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="left-align">Проверка простого числа</td>
+                    <td class="left-align">
+                        <pre>
+let isPrime = num => {
+    if (num <= 1) {
+        alert(false);
+    return;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            alert(false);
+            return;
+        }
+    }
+    alert(true);
+};
+
+isPrime(7)</pre>
+                    </td>
+                    <td>
+                        <button onclick="(isPrime(7))">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="left-align">Конвертация температуры</td>
+                    <td class="left-align">
+                        <pre>
+let celsiusToFahrenheit = celsius => alert((celsius * 9/5) + 32);
+
+celsiusToFahrenheit(100)</pre>
+                    </td>
+                    <td>
+                        <button onclick="celsiusToFahrenheit(100)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="left-align">Поиск минимального числа</td>
+                    <td class="left-align">
+                        <pre>
+let findMin = numbers => alert(Math.min(...numbers));
+
+findMin([5, 2, 8, 1, 9])</pre>
+                    </td>
+                    <td>
+                        <button onclick="findMin([5, 2, 8, 1, 9])">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="left-align">Простая стрелочная функция без параметров</td>
+                    <td class="left-align">
+                        <pre>
+let sayHello = () => alert("Привет!");</pre>
+                    </td>
+                    <td>
+                        <button onclick="sayHello()">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="left-align">Функция с одним параметром</td>
+                    <td class="left-align">
+                        <pre>
+let square = x => alert(x * x);
+
+square(5)</pre>
+                    </td>
+                    <td>
+                        <button onclick="square(5)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="left-align">Функция с несколькими параметрами</td>
+                    <td class="left-align">
+                        <pre>
+let add = (a, b) => alert(a + b);
+
+add(3, 4)</pre>
+                    </td>
+                    <td>
+                        <button onclick="add(3, 4)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="left-align">Функция для вычисления среднего балла</td>
+                    <td class="left-align">
+                        <pre>
+let calculateAverage = (grades) => {
+    let sum = grades.reduce((acc, grade) => acc + grade, 0);
+    alert(sum / grades.length);
+};
+
+calculateAverage([5, 4, 5, 3])</pre>
+                    </td>
+                    <td>
+                        <button onclick="calculateAverage([5, 4, 5, 3])">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="left-align">Проверка чётности числа</td>
+                    <td class="left-align">
+                        <pre>
+let isEven = num => alert(num % 2 === 0);
+
+isEven(4)</pre>
+                    </td>
+                    <td>
+                        <button onclick="isEven(4)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="left-align">Функция для приветствия ученика</td>
+                    <td class="left-align">
+                        <pre>
+let greetStudent = (name, grade) => alert(`Привет, ${name}! Добро пожаловать в ${grade} класс!`);
+
+greetStudent("Анна", 8)</pre>
+                    </td>
+                    <td>
+                        <button onclick='greetStudent("Анна", 8)'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="left-align">Поиск максимального числа</td>
+                    <td class="left-align">
+                        <pre>
+let findMax = (...numbers) => alert(Math.max(...numbers));
+
+findMax(1, 5, 3, 9, 2)</pre>
+
+                    </td>
+                    <td>
+                        <button onclick="findMax(1, 5, 3, 9, 2)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="left-align">Функция фильтрации положительных чисел</td>
+                    <td class="left-align">
+                        <pre>
+let getPositive = numbers => alert(numbers.filter(num => num > 0));
+
+getPositive([-1, 2, -3, 4])</pre>
+                    </td>
+                    <td>
+                        <button onclick="getPositive([-1, 2, -3, 4])">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td class="left-align">Функция для создания инициалов</td>
+                    <td class="left-align">
+                        <pre>
+let getInitials = (firstName, lastName) => alert(`${firstName[0]}.${lastName[0]}.`);
+
+getInitials("Иван", "Петров")</pre>
+                    </td>
+                    <td>
+                        <button onclick='getInitials("Иван", "Петров")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td class="left-align">Проверка длины строки</td>
+                    <td class="left-align">
+                        <pre>
+let isLongEnough = (str, minLength) => alert(str.length >= minLength);
+
+isLongEnough("привет", 5)</pre>
+                    </td>
+                    <td>
+                        <button onclick='isLongEnough("привет", 5)'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td class="left-align">Функция подсчёта гласных букв</td>
+                    <td class="left-align">
+                        <pre>
+let countVowels = str => {
+    let vowels = 'аеёиоуыэюя';
+    alert(str.toLowerCase().split('').filter(letter => vowels.includes(letter)).length);
+};
+
+countVowels("Привет")</pre>
+                    </td>
+                    <td>
+                        <button onclick='countVowels("Привет")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td class="left-align">Функция форматирования оценки</td>
+                    <td class="left-align">
+                        <pre>
+let formatGrade = grade => {
+    if (grade >= 4.5) alert("Отлично");
+    if (grade >= 3.5 & grade < 4.5) alert("Хорошо");
+    if (grade >= 2.5 & grade < 3.5) alert("Удовлетворительно");
+    if (grade < 2.5) alert("Нужно подтянуть");
+};
+
+formatGrade(4.7)</pre>
+                    </td>
+                    <td>
+                        <button onclick="formatGrade(4.7)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td class="left-align">Функция создания списка дел</td>
+                    <td class="left-align">
+                        <pre>
+let createTodoList = (...tasks) => {
+    alert(tasks.map((task, index) => `${index + 1}. ${task}`));
+};
+
+createTodoList("Математика", "Физика", "История")</pre>
+                    </td>
+                    <td>
+                        <button onclick='createTodoList("Математика", "Физика", "История")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td class="left-align">Проверка палиндрома</td>
+                    <td class="left-align">
+                        <pre>
+let isPalindrome = str => {
+    str = str.toLowerCase().replace(/\s/g, '');
+    alert(str === str.split('').reverse().join(''));
+};
+
+isPalindrome("А роза упала на лапу Азора")</pre>
+                    </td>
+                    <td>
+                        <button onclick='isPalindrome("А роза упала на лапу Азора")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td class="left-align">Функция расчёта скидки</td>
+                    <td class="left-align">
+                        <pre>
+let calculateDiscount = (price, discountPercent) => {
+    let discount = (price * discountPercent) / 100;
+    alert(price - discount);
+};
+
+calculateDiscount(1000, 10)</pre>
+                    </td>
+                    <td>
+                        <button onclick="calculateDiscount(1000, 10)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td class="left-align">Функция генерации таблицы умножения</td>
+                    <td class="left-align">
+                        <pre>
+let multiplicationRow = num => {
+    alert(Array.from({length: 10}, (_, i) =>
+        `${num} × ${i + 1} = ${num * (i + 1)}`
+    ));
+};
+
+multiplicationRow(5)</pre>
+                    </td>
+                    <td>
+                        <button onclick="multiplicationRow(5)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td class="left-align">Функция проверки времени выполнения</td>
+                    <td class="left-align">
+                        <pre>
+let checkTimeLimit = (startTime, limitMinutes) => {
+    let currentTime = new Date();
+    let diffMinutes = (currentTime - startTime) / (1000 * 60);
+    alert(diffMinutes <= limitMinutes);
+};
+
+checkTimeLimit(new Date(), 30)</pre>
+                    </td>
+                    <td>
+                        <button onclick="checkTimeLimit(new Date(), 30)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td class="left-align">Функция форматирования имени</td>
+                    <td class="left-align">
+                        <pre>
+let formatName = name => {
+    alert(name
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' '));
+};
+
+formatName("иван петров")</pre>
+                    </td>
+                    <td>
+                        <button onclick='formatName("иван петров")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td class="left-align">Функция проверки ответа</td>
+                    <td class="left-align">
+                        <pre>
+let checkAnswer = (userAnswer, correctAnswer) => {
+    userAnswer = userAnswer.toLowerCase().trim();
+    correctAnswer = correctAnswer.toLowerCase().trim();
+    const message = userAnswer === correctAnswer ? "Правильно!" : "Попробуйте ещё раз";
+    alert(message); // Выводим только сообщение
+};
+
+checkAnswer("Париж", "париж")</pre>
+                    </td>
+                    <td>
+                        <button onclick='checkAnswer("Париж", "париж")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td class="left-align">Функция создания оценочной шкалы</td>
+                    <td class="left-align">
+                        <pre>
+let createGradeScale = score => {
+    let scales = [
+        { min: 90, grade: "5+", message: "Превосходно!" },
+        { min: 80, grade: "5", message: "Отлично!" },
+        { min: 70, grade: "4", message: "Хорошо!" },
+        { min: 60, grade: "3", message: "Удовлетворительно" },
+        { min: 0, grade: "2", message: "Нужно больше практики" }
+    ];
+
+    // Находим подходящую шкалу
+    let result = scales.find(scale => score >= scale.min);
+
+    // Проверяем, найдена ли шкала
+    if (result) {
+        alert(`Оценка: ${result.grade}\nСообщение: ${result.message}`);
+    } else {
+        alert("Невозможно определить оценку для данного балла.");
+    }
+};
+
+createGradeScale(85)</pre>
+                    </td>
+                    <td>
+                        <button onclick="createGradeScale(85)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td class="left-align">1. Напишите стрелочную функцию для вычисления факториала числа</td>
+                    <td class="left-align">
+                        <pre>
+let factorial = (n, isTopLevel = true) => {
+    if (n <= 1) return 1; // Базовый случай: факториал 0 или 1 равен 1
+    const result = n * factorial(n - 1, false); // Рекурсивный случай
+    if (isTopLevel) {
+        alert(result); // Выводим результат только на верхнем уровне рекурсии
+    }
+    return result;
+};
+
+factorial(5)</pre>
+                    </td>
+                    <td>
+                        <button onclick="factorial(5)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td class="left-align">2. Создайте функцию для подсчёта количества гласных в строке</td>
+                    <td class="left-align">
+                        <pre>
+let countVowels2 = str => {
+    let vowels = 'аеёиоуыэюя';
+    alert(str.toLowerCase().split('').filter(letter => vowels.includes(letter)).length);
+};
+
+countVowels2("Москва - столица России")</pre>
+                    </td>
+                    <td>
+                        <button onclick='countVowels2("Москва - столица России")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td class="left-align">3. Напишите функцию для проверки, является ли строка палиндромом</td>
+                    <td class="left-align">
+                        <pre>
+let isPalindrome2 = str => {
+    str = str.toLowerCase().replace(/\s/g, '');
+    alert(str === str.split('').reverse().join(''));
+};
+
+isPalindrome2("Привет, мир")</pre>
+                    </td>
+                    <td>
+                        <button onclick='isPalindrome2("Привет, мир")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td class="left-align">4. Создайте функцию для генерации случайного числа в заданном диапазоне</td>
+                    <td class="left-align">
+                        <pre>
+let randomInRange = (min, max) => alert(Math.floor(Math.random() * (max - min + 1)) + min);
+
+randomInRange(1, 10)</pre>
+                    </td>
+                    <td>
+                        <button onclick="randomInRange(1, 10)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td class="left-align">5. Напишите функцию для фильтрации массива строк по минимальной длине</td>
+                    <td class="left-align">
+                        <pre>
+let filterByMinLength = (arr, minLength) => alert(arr.filter(str => str.length >= minLength));
+
+filterByMinLength(["apple", "banana", "kiwi", "pear"], 5)</pre>
+                    </td>
+                    <td>
+                        <button onclick='filterByMinLength(["apple", "banana", "kiwi", "pear"], 5)'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td class="left-align">6. Создайте стрелочную функцию, которая принимает массив чисел и
+                        возвращает их сумму</td>
+                    <td class="left-align">
+                        <pre>
+let sumNumbers2 = (numbers) => alert(numbers.reduce((acc, curr) => acc + curr, 0));
+
+sumNumbers2([6, 8, 13, 2])</pre>
+                    </td>
+                    <td>
+                        <button onclick="sumNumbers2([6, 8, 13, 2])">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td class="left-align">7. Напишите функцию, которая принимает строку и возвращает её длину</td>
+                    <td class="left-align">
+                        <pre>
+let getStringLength2 = str => alert(str.length);
+
+getStringLength2("Москва")</pre>
+                    </td>
+                    <td>
+                        <button onclick='getStringLength2("Москва")'>Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td class="left-align">8. Создайте функцию, которая проверяет, является ли число простым</td>
+                    <td class="left-align">
+                        <pre>
+let isPrime2 = num => {
+    if (num <= 1) {
+        alert(false);
+    return;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            alert(false);
+            return;
+        }
+    }
+    alert(true);
+};
+
+isPrime2(10)</pre>
+                    </td>
+                    <td>
+                        <button onclick="isPrime2(10)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td class="left-align">9. Напишите функцию, которая преобразует температуру из Цельсия в
+                        Фаренгейт</td>
+                    <td class="left-align">
+                        <pre>
+let celsiusToFahrenheit2 = celsius => alert((celsius * 9/5) + 32);
+
+celsiusToFahrenheit2(30)</pre>
+                    </td>
+                    <td>
+                        <button onclick="celsiusToFahrenheit2(30)">Выполнить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td class="left-align">10. Создайте функцию, которая находит наименьшее число в массиве</td>
+                    <td class="left-align">
+                        <pre>
+let findMin2 = numbers => alert(Math.min(...numbers));
+
+findMin2([10, 5, 3, 8, 2])</pre>
+                    </td>
+                    <td>
+                        <button onclick="findMin2([10, 5, 3, 8, 2])">Выполнить</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    let sumNumbers = (numbers) => alert(numbers.reduce((acc, curr) => acc + curr, 0));
+
+    let getStringLength = str => alert(str.length);
+
+    let isPrime = num => {
+        if (num <= 1) {
+            alert(false);
+        return;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                alert(false);
+                return;
+            }
+        }
+        alert(true);
+    }; 
+
+    let celsiusToFahrenheit = celsius => alert((celsius * 9/5) + 32);
+
+    let findMin = numbers => alert(Math.min(...numbers));
+
+    let sayHello = () => alert("Привет!");
+
+    let square = x => alert(x * x);
+
+    let add = (a, b) => alert(a + b);
+
+    let calculateAverage = (grades) => {
+        let sum = grades.reduce((acc, grade) => acc + grade, 0);
+        alert(sum / grades.length);
+    };
+
+    let isEven = num => alert(num % 2 === 0);
+
+    let greetStudent = (name, grade) => alert(`Привет, ${name}! Добро пожаловать в ${grade} класс!`);
+    
+    let findMax = (...numbers) => alert(Math.max(...numbers));
+
+    let getPositive = numbers => alert(numbers.filter(num => num > 0));
+
+    let getInitials = (firstName, lastName) => alert(`${firstName[0]}.${lastName[0]}.`);
+
+    let isLongEnough = (str, minLength) => alert(str.length >= minLength);
+
+    let countVowels = str => {
+        let vowels = 'аеёиоуыэюя';
+        alert(str.toLowerCase().split('').filter(letter => vowels.includes(letter)).length);
+    };
+
+    let formatGrade = grade => {
+        if (grade >= 4.5) alert("Отлично");
+        if (grade >= 3.5 & grade < 4.5) alert("Хорошо");
+        if (grade >= 2.5 & grade < 3.5) alert("Удовлетворительно");
+        if (grade < 2.5) alert("Нужно подтянуть");
+    };
+
+    let createTodoList = (...tasks) => {
+        alert(tasks.map((task, index) => `${index + 1}. ${task}`));
+    };
+
+    let isPalindrome = str => {
+        str = str.toLowerCase().replace(/\s/g, '');
+        alert(str === str.split('').reverse().join(''));
+    };
+
+    let calculateDiscount = (price, discountPercent) => {
+        let discount = (price * discountPercent) / 100;
+        alert(price - discount);
+    };
+
+    let multiplicationRow = num => {
+        alert(Array.from({length: 10}, (_, i) =>
+            `${num} × ${i + 1} = ${num * (i + 1)}`
+        ));
+    };
+
+    let checkTimeLimit = (startTime, limitMinutes) => {
+        let currentTime = new Date();
+        let diffMinutes = (currentTime - startTime) / (1000 * 60);
+        alert(diffMinutes <= limitMinutes);
+    };
+
+    let formatName = name => {
+        alert(name
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' '));
+    };
+
+    let checkAnswer = (userAnswer, correctAnswer) => {
+        userAnswer = userAnswer.toLowerCase().trim();
+        correctAnswer = correctAnswer.toLowerCase().trim();
+        const message = userAnswer === correctAnswer ? "Правильно!" : "Попробуйте ещё раз";
+        alert(message); // Выводим только сообщение
+    };
+
+    let createGradeScale = score => {
+        let scales = [
+            { min: 90, grade: "5+", message: "Превосходно!" },
+            { min: 80, grade: "5", message: "Отлично!" },
+            { min: 70, grade: "4", message: "Хорошо!" },
+            { min: 60, grade: "3", message: "Удовлетворительно" },
+            { min: 0, grade: "2", message: "Нужно больше практики" }
+        ];
+
+        // Находим подходящую шкалу
+        let result = scales.find(scale => score >= scale.min);
+
+        // Проверяем, найдена ли шкала
+        if (result) {
+            alert(`Оценка: ${result.grade}\nСообщение: ${result.message}`);
+        } else {
+            alert("Невозможно определить оценку для данного балла.");
+        }
+    };
+
+    let factorial = (n, isTopLevel = true) => {
+        if (n <= 1) return 1; // Базовый случай: факториал 0 или 1 равен 1
+        const result = n * factorial(n - 1, false); // Рекурсивный случай
+        if (isTopLevel) {
+            alert(result); // Выводим результат только на верхнем уровне рекурсии
+        }
+        return result;
+    };
+
+    let countVowels2 = str => {
+        let vowels = 'аеёиоуыэюя';
+        alert(str.toLowerCase().split('').filter(letter => vowels.includes(letter)).length);
+    };
+
+    let isPalindrome2 = str => {
+        str = str.toLowerCase().replace(/\s/g, '');
+        alert(str === str.split('').reverse().join(''));
+    };
+
+    let randomInRange = (min, max) => alert(Math.floor(Math.random() * (max - min + 1)) + min);
+
+    let filterByMinLength = (arr, minLength) => alert(arr.filter(str => str.length >= minLength));
+
+    let sumNumbers2 = (numbers) => alert(numbers.reduce((acc, curr) => acc + curr, 0));
+
+    let getStringLength2 = str => alert(str.length);
+
+    let isPrime2 = num => {
+        if (num <= 1) {
+            alert(false);
+        return;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                alert(false);
+                return;
+            }
+        }
+        alert(true);
+    };
+
+    let celsiusToFahrenheit2 = celsius => alert((celsius * 9/5) + 32);
+
+    let findMin2 = numbers => alert(Math.min(...numbers));
+</script>
+</html>

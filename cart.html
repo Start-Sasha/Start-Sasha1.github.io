@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site-cart-style.css">
+</head>
+<body>
+    <header>
+        <section class="header">
+            <img class="logo" src="img/site-logo.svg">
+            <img id="header-img" class="catalog" src="img/Catalog.svg">
+            <div class="search">
+                <p class="search-text">Найти на HuntPlanet</p>
+            </div>
+            <img id="header-img" class="profile" src="img/Profile.svg">
+            <img id="header-img" class="fav" src="img/Fav.svg">
+            <img id="header-img" class="cart" src="img/Cart.svg">
+        </section>
+    </header>
+    <section class="page">
+        <div class="wrapper">
+            <div class="item" id="cart-items">
+                <div class="cart-items-top">
+                    <p class="top-text">Корзина <span class="top-text-mini">2 товара</span></p>
+                    <div class="bottom-text-div">
+                        <img id="bottom-text-div-item" class="checkbox" src="img/checkbox.svg">
+                        <p id="bottom-text-div-item" class="bottom-text-normal">Выбрать всё</p>
+                        <p id="bottom-text-div-item" class="bottom-text-red">Удалить выбранное</p>
+                    </div>
+                </div>
+                <div class="cart-items-elem">
+                    <img id="cart-items-elem-item" class="checkbox" src="img/checkbox.svg">
+                    <img id="cart-items-elem-item" class="item-img" src="img/cart-item1.jpg">
+                    <div id="cart-items-elem-item" class="cart-items-elem-info">
+                        <p class="cart-items-elem-text">Бинокль</p>
+                        <div class="cart-items-elem-icons">
+                            <img class="item-fav" src="img/item-fav.svg">
+                            <img class="item-del" src="img/item-del.svg">
+                        </div>
+                    </div>
+                    <p class="cart-items-elem-price">100 ₽</p>
+                    <div class="cart-items-elem-sum">
+                        <p class="cart-items-elem-sum-elem">-</p>
+                        <p class="cart-items-elem-sum-elem">1</p>
+                        <p class="cart-items-elem-sum-elem">+</p>
+                    </div>
+                </div>
+                <div class="cart-items-elem">
+                    <img id="cart-items-elem-item" class="checkbox" src="img/checkbox.svg">
+                    <img id="cart-items-elem-item" class="item-img" src="img/cart-item2.jpg">
+                    <div id="cart-items-elem-item" class="cart-items-elem-info">
+                        <p class="cart-items-elem-text">Лента</p>
+                        <div class="cart-items-elem-icons">
+                            <img class="item-fav" src="img/item-fav.svg">
+                            <img class="item-del" src="img/item-del.svg">
+                        </div>
+                    </div>
+                    <p class="cart-items-elem-price">200 ₽</p>
+                    <div class="cart-items-elem-sum">
+                        <p class="cart-items-elem-sum-elem">-</p>
+                        <p class="cart-items-elem-sum-elem">1</p>
+                        <p class="cart-items-elem-sum-elem">+</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-wrapper">
+                <div class="item" id="deliever">
+                    <div class="deliever-button">
+                        <p class="deliever-button-text">Оформить</p>
+                    </div>
+                    <div class="deliever-elem">
+                        <p class="deliever-elem-text">Товары, 2шт.</p>
+                        <p class="deliever-elem-text">300 ₽</p>
+                    </div>
+                    <div class="deliever-elem">
+                        <p class="deliever-elem-text">Скидка</p>
+                        <p class="deliever-elem-text">0 ₽</p>
+                    </div>
+                    <div class="deliever-elem">
+                        <p class="deliever-elem-text-big">Итого</p>
+                        <p class="deliever-elem-text-big">300 ₽</p>
+                    </div>
+                </div>
+                <div class="item" id="info">
+                    <p class="info-title">Данные</p>
+                    <p class="info-green">Ввести личные данные</p>
+                    <p class="info-title">Доставка</p>
+                    <p class="info-green">Ввести домашний адрес</p>
+                    <p class="info-title">Оплата</p>
+                    <p class="info-green">Ввести реквизиты банковской карты</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

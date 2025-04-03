@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №1</title>
+    <linK rel="stylesheet" href="css/java-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="big">Лабораторная работа №1</h1>
+        <div class="element">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Условие</th>
+                    <th>Код</th>
+                    <th>Действие</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="left-align">1. Сделайте файл с вашей первой программой. Выведите в ней на экран
+                        какой-нибудь текст.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program1() {
+        alert('Моя первая программа');    
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program1()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="left-align">2. Создайте файл со скриптом. Подключите его к вашему HTML файлу.
+                        Проверьте его работу.</td>
+                    <td class="left-align"><b>Основной код:</b>
+                        <pre>
+&lt;script src="java-folder/Ex2.js"&gt;&lt;/script&gt;</pre>
+                        <b>Код из js-файла Ex2.js:</b>
+                        <pre>
+function program2() {
+    alert('Задание 2, работает!')    
+}</pre>
+                    </td>
+                    <td><button onclick="program2()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="left-align">3. Создайте три файла со скриптами. Подключите их к вашему HTML
+                        файлу. Проверьте их работу.</td>
+                    <td class="left-align"><b>Основной код:</b>
+                        <pre>
+&lt;script src="java-folder/Ex3a.js"&gt;&lt;/script&gt;
+&lt;script src="java-folder/Ex3b.js"&gt;&lt;/script&gt;
+&lt;script src="java-folder/Ex3c.js"&gt;&lt;/script&gt;</pre>
+                        <b>Код из js-файла Ex3a.js:</b>
+                        <pre>
+function program3a() {
+    alert('js-файл №1');    
+}</pre>
+                        <b>Код из js-файла Ex3b.js:</b>
+                        <pre>
+function program3b() {
+    alert('js-файл №2');    
+}</pre>
+                        <b>Код из js-файла Ex3c.js:</b>
+                        <pre>
+function program3c() {
+    alert('js-файл №3');    
+}</pre>
+                    </td>
+                    <td>
+                        <button onclick="program3a()">Выполнить a</button>
+                        <button onclick="program3b()">Выполнить b</button>
+                        <button onclick="program3c()">Выполнить c</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="left-align">4. Исправьте подключение вашего файла так, чтобы после имени файла
+                        следовал номер его версии.</td>
+                    <td class="left-align"><b>Основной код:</b>
+                        <pre>
+&lt;script src="java-folder/Ex4.js?v=1"&gt;&lt;/script&gt;</pre>
+                        <b>Код из js-файла Ex3a.js:</b>
+                        <pre>
+function program4() {
+    alert('Исправленное сообщение');    
+}</pre>
+                    </td>
+                    <td><button onclick="program4()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="left-align">5. Создайте переменную num и присвойте ей значение 123. Выведите
+                        значение этой переменной на экран с помощью функции alert.
+                        </td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program5() {
+        let num=123;
+        alert(num); 
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program5()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="left-align">6. Создайте переменную a. Запишите в нее значение 10, выведите его на
+                        экран. Затем запишите в нее значение 20, выведите его на экран.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program6() {
+        let a=10;
+        alert(a);
+        a=20;
+        alert(a);
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program6()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="left-align">7. Создайте переменную a. Запишите в нее сумму чисел 1, 2 и 3. С
+                        помощью функции alert выведите на экран содержимое переменной a.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program7() {
+        let a=1+2+3;
+        alert(a);   
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program7()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="left-align">8. Создайте переменную a со значением 10 и переменную b со
+                        значением 2. Выведите на экран их сумму, разность, произведение и частное
+                        (результат деления).</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program8() {
+        let a=10;
+        let b=2;
+        alert(a+b);
+        alert(a-b);
+        alert(a*b);
+        alert(a/b);
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program8()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="left-align">9. Создайте переменную c со значением 10 и переменную d со
+                        значением 5. Просуммируйте их, а результат присвойте переменной result.
+                        Выведите на экран значение переменной result.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program9() {
+        let c=10;
+        let d=5;
+        let result=c+d;
+        alert(result);   
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program9()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="left-align">10. Создайте переменную a со значением 1, переменную b со значением 2 и
+                        переменную c со значением 3. Выведите на экран их сумму.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program10() {
+        let a=1;
+        let b=2;
+        let c=3;
+        alert(a+b+c);  
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program10()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="left-align">11. Создайте переменную a со значением 10 и переменную b со
+                        значением 5. Отнимите от a переменную b и результат присвойте
+                        переменной c. Затем создайте переменную d, присвойте ей значение 7.
+                        Сложите переменные c и d, а результат запишите в переменную result.
+                        Выведите на экран значение переменной result.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program11() {
+        let a=10;
+        let b=5;
+        let c=a-b;
+        let d=7;
+        let result=c+d;
+        alert(result);   
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program11()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="left-align">12. Создайте переменную a со значением -100. Выведите это значение на
+                        экран.
+                        </td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program12() {
+        let a=-100;
+        alert(a);    
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program12()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="left-align">13. Создайте переменную a, запишите в нее какое-нибудь положительное
+                        или отрицательное число. Выведите на экран это число с обратным знаком.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program13() {
+        let a=25;
+        alert(-a);    
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program13()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td class="left-align">14. Возведите число 2 в 10-ю степень. Выведите результат на экран.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program14() {
+        alert(2**10);   
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program14()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td class="left-align">15. Создайте строку с вашем именем и строку с вашей фамилией.
+                        Выведите эти данные на экран.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program15() {
+        let name='Лев';
+        let surname='Слепцов';
+        alert(name);
+        alert(surname);
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program15()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td class="left-align">16. Создайте переменную str и присвойте ей строку '!!!'. Выведите значение
+                        этой переменной на экран.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program16() {
+        let str='!!!';
+        alert(str);   
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program16()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td class="left-align">17. Создайте переменную с текстом 'java' и переменную с текстом 'script'. С
+                        помощью этих переменных и операции сложения строк выведите на экран
+                        строку 'javascript'.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program17() {
+        let str1='java';
+        let str2='sript';
+        alert(str1+str2);   
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program17()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td class="left-align">18. Создайте переменную с текстом 'hello' и переменную с текстом 'world'. С
+                        помощью этих переменных и операции сложения строк выведите на экран
+                        строку 'hello world'</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program18() {
+        let str1='hello';
+        let str2='world';
+        alert(str1+' '+str2);   
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program18()">Выполнить</button></td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td class="left-align">19. Запишите в переменную str строку, состоящую из символов 'a', 'b', 'c',
+                        причем после каждого символа, кроме последнего, должен стоять перенос
+                        строки.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;script&gt;
+    function program19() {
+        let str='a\nb\nc';
+        alert(str);    
+    }
+&lt;/script&gt;</pre>
+                    </td>
+                    <td><button onclick="program19()">Выполнить</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="java-folder/Ex2.js"></script>
+<script src="java-folder/Ex3a.js"></script>
+<script src="java-folder/Ex3b.js"></script>
+<script src="java-folder/Ex3c.js"></script>
+<script src="java-folder/Ex4.js?v=1"></script>
+<script>
+    function program1() {
+        alert('Моя первая программа');    
+    }
+    function program5() {
+        let num=123;
+        alert(num); 
+    }
+    function program6() {
+        let a=10;
+        alert(a);
+        a=20;
+        alert(a);
+    }
+    function program7() {
+        let a=1+2+3;
+        alert(a);
+    }
+    function program8() {
+        let a=10;
+        let b=2;
+        alert(a+b);
+        alert(a-b);
+        alert(a*b);
+        alert(a/b);
+    }
+    function program9() {
+        let c=10;
+        let d=5;
+        let result=c+d;
+        alert(result);   
+    }
+    function program10() {
+        let a=1;
+        let b=2;
+        let c=3;
+        alert(a+b+c);  
+    }
+    function program11() {
+        let a=10;
+        let b=5;
+        let c=a-b;
+        let d=7;
+        let result=c+d;
+        alert(result);   
+    }
+    function program12() {
+        let a=-100;
+        alert(a);    
+    }
+    function program13() {
+        let a=25;
+        alert(-a);    
+    }
+    function program14() {
+        alert(2**10);   
+    }
+    function program15() {
+        let name='Лев';
+        let surname='Слепцов';
+        alert(name);
+        alert(surname);
+    }
+    function program16() {
+        let str='!!!';
+        alert(str);   
+    }
+    function program17() {
+        let str1='java';
+        let str2='sript';
+        alert(str1+str2);   
+    }
+    function program18() {
+        let str1='hello';
+        let str2='world';
+        alert(str1+' '+str2);   
+    }
+    function program19() {
+        let str='a\nb\nc';
+        alert(str);    
+    }
+</script>
+</html>

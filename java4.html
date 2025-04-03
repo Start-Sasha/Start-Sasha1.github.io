@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>50 кнопок для демонстрации взаимодействия с DOM</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .button {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 150px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            width: 100%;
+            min-height: 100px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #button-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            padding: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 15px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(145deg, #2196f3, #1976d2);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: auto;
+            min-width: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            background: linear-gradient(145deg, #1976d2, #1565c0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #output {
+            margin: 20px auto;
+            width: calc(100% - 40px);
+            min-height: 100px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1000px) {
+            #button-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #button-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            #button-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>50 кнопок для демонстрации взаимодействия с DOM</h1>
+    <div id="output"></div>
+    <!-- Генерация кнопок -->
+    <div id="button-container"></div>
+    <script>
+        const outputDiv = document.getElementById('output');
+        const buttonContainer = document.getElementById('button-container');
+        // Генерация кнопок
+        for (let i = 1; i <= 50; i++) {
+            const button = document.createElement('button');
+            button.className = 'button';
+            button.id = `button${i}`;
+            button.innerText = `Кнопка ${i}`;
+            buttonContainer.appendChild(button);
+            // Обработчики событий для каждой кнопки
+            button.addEventListener('click', function() {
+                switch(i) {
+                    case 1:
+                        outputDiv.innerText = "Изменен текст!";
+                        break;
+                    case 2:
+                        outputDiv.style.color = "blue";
+                        break;
+                    case 3:
+                        const newElement = document.createElement("p");
+                        newElement.innerText = "Новый элемент добавлен!";
+                        outputDiv.appendChild(newElement);
+                        break;
+                    case 4:
+                        if (outputDiv.lastChild) {
+                        outputDiv.removeChild(outputDiv.lastChild);
+                        }
+                        break;
+                    case 5:
+                        outputDiv.style.fontSize = "20px";
+                        break;
+                    case 6:
+                        alert("Это сообщение от кнопки 6!");
+                        break;
+                    case 7:
+                        const userInput = prompt("Введите что-нибудь:");
+                        if (userInput) {
+                        outputDiv.innerText = `Вы ввели: ${userInput}`;
+                        }
+                        break;
+                    case 8:
+                        alert("Это сообщение от кнопки 8!");
+                        break;
+                    case 9:
+                        document.body.style.backgroundColor = "lightgreen";
+                        break;
+                    case 10:
+                        outputDiv.innerText = "Фон изменен на зеленый!";
+                        break;
+                    // Методы для получения элементов
+                    case 11:
+                        const elemById = document.getElementById('output');
+                        alert(`Элемент с ID 'output': ${elemById.tagName}`);
+                        break;
+                    case 12:
+                        const elemsByClass = document.getElementsByClassName('button');
+                        alert(`Количество кнопок: ${elemsByClass.length}`);
+                        break;
+                    case 13:
+                        const elemsByName = document.getElementsByName('button');
+                        alert(`Количество элементов с именем 'button': ${elemsByName.length}`);
+                        break;
+                    case 14:
+                        const elemsByTag = document.getElementsByTagName('button');
+                        alert(`Количество кнопок: ${elemsByTag.length}`);
+                        break;
+                    case 15:
+                        const elemsByTagNS = document.getElementsByTagNameNS('*', 'button');
+                        alert(`Количество кнопок (через getElementsByTagNameNS): ${elemsByTagNS.length}`);
+                        break;
+                    case 16:
+                        const selection = document.getSelection();
+                        alert(`Текущий выбранный текст: "${selection.toString()}"`);
+                        break;
+                    case 17:
+                        const animations = document.getAnimations();
+                        alert(`Количество активных анимаций: ${animations.length}`);
+                        break;
+                    case 18:
+                        const firstButton = document.querySelector('.button');
+                        alert(`Первый элемент с классом 'button': ${firstButton.innerText}`);
+                        break;
+                    case 19:
+                        const allButtons = document.querySelectorAll('.button');
+                        alert(`Количество кнопок через querySelectorAll: ${allButtons.length}`);
+                        break;
+                    case 20:
+                        const randomNum = Math.random();
+                        outputDiv.innerText = `Случайное число: ${randomNum}`;
+                        break;
+                    // Другие кнопки с уникальными действиями
+                    case 21:
+                        outputDiv.innerText = "Кнопка 21 нажата!";
+                        break;
+                    case 22:
+                        outputDiv.innerText = "Кнопка 22 нажата!";
+                        break;
+                    case 23: // Смена цвета фона на случайный
+                        const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                        outputDiv.style.backgroundColor = randomColor;
+                        break;
+                    case 24: // Запрос текста и добавление параграфа
+                        const textInput = prompt("Введите текст для добавления:");
+                        if (textInput) {
+                            const newParagraph = document.createElement('p');
+                            newParagraph.innerText = textInput;
+                            newParagraph.style.border = "1px solid black";
+                            outputDiv.appendChild(newParagraph);
+                        }
+                        break;
+                    case 25: // Подсчет всех элементов на странице с помощью getElementsByTagName
+                        const totalElementsByTagName = document.getElementsByTagName('*').length;
+                        alert(`Количество всех элементов на странице с помощью getElementsByTagName: ${totalElementsByTagName}`);
+                        break;
+                    case 26: // Подсчет всех элементов на странице с помощью querySelectorAll
+                        const totalElementsByQuerySelectorAll = document.querySelectorAll('*').length;
+                        alert(`Количество всех элементов на странице с помощью querySelectorAll: ${totalElementsByQuerySelectorAll}`);
+                        break;
+                    case 27: // Показать текущее время
+                        alert(`Текущее время: ${new Date().toLocaleTimeString()}`);
+                        break;
+                    case 28: // Изменить цвет текста на случайный
+                        const randomTextColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                        outputDiv.style.color = randomTextColor;
+                        break;
+                    case 29: // Добавление изображения
+                        const imgSrc = prompt("Введите URL изображения:");
+                        if (imgSrc) {
+                            const img = document.createElement('img');
+                            img.src = imgSrc;
+                            img.style.maxWidth = '100%'; // Максимальная ширина для адаптивности
+                            outputDiv.appendChild(img);
+                        }
+                        break;
+                    case 30: // Добавить кнопку
+                        const button = document.createElement('button');
+                        button.innerText = "Новая кнопка";
+                        outputDiv.appendChild(button);
+                        break;
+                    case 31: // Отобразить список доступных функций
+                        alert("Доступные функции:\n" +
+                            "27: Показать текущее время\n" + 
+                            "28: Изменить цвет текста на случайный\n" + 
+                            "29: Добавление изображения\n" + 
+                            "30: Добавить кнопку\n" + 
+                            "31: Отобразить список доступных функций\n" + 
+                            "32: Изменение размера текста\n" + 
+                            "33: Добавить список\n" + 
+                            "34: Добавление ссылки\n" +
+                            "35: Смена шрифта\n" +
+                            "36: Увеличение отступов\n" +
+                            "37: Смена стиля границы\n" + 
+                            "38: Смена карусели изображений\n" +
+                            "39: Смена прозрачности\n" +
+                            "40: Переключение видимости\n" + 
+                            "41: Увеличить масштаб содержимого\n" + 
+                            "42: Открытие нового окна\n" + 
+                            "43: Показать текущую дату\n" + 
+                            "44: Копирование текста в буфер обмена\n" + 
+                            "45: Показать случайный элемент из массива\n" + 
+                            "46: Изменение прозрачности фона\n" + 
+                            "47: Сохранение текста в локальное хранилище\n" +
+                            "48: Заполнение outputDiv сохраненным текстом\n" +
+                            "49: Создание табуляции для переключения между контентом\n" +
+                            "50: Смена цвета фона на выбранный\n");
+                        break;
+                    case 32: // Изменение размера текста
+                        const newSize = prompt("Введите новый размер текста (например, 20px):");
+                        outputDiv.style.fontSize = newSize;
+                        break;
+                    case 33: // Добавить список
+                        const listItems = prompt("Введите элементы списка, разделенные запятой:");
+                        if (listItems) {
+                            const ul = document.createElement('ul');
+                            listItems.split(',').forEach(item => {
+                                const li = document.createElement('li');
+                                li.innerText = item.trim();
+                                ul.appendChild(li);
+                            });
+                            outputDiv.appendChild(ul);
+                        }
+                        break;
+                    case 34: // Добавление ссылки
+                        const linkText = prompt("Введите текст ссылки:");
+                        const linkUrl = prompt("Введите URL:");
+                        if (linkText && linkUrl) {
+                            const a = document.createElement('a');
+                            a.href = linkUrl;
+                            a.innerText = linkText;
+                            outputDiv.appendChild(a);
+                        }
+                        break;
+                    case 35: // Смена шрифта
+                        const newFont = prompt("Введите название шрифта:");
+                        outputDiv.style.fontFamily = newFont;
+                        break;
+                    case 36: // Увеличение отступов
+                        const padding = prompt("Введите размер отступов (например, 20px):");
+                        outputDiv.style.padding = padding;
+                        break;
+                    case 37: // Смена стиля границы
+                        const borderStyle = prompt("Введите стиль границы (например, solid):");
+                        const borderColor = prompt("Введите цвет границы:");
+                        outputDiv.style.border = `2px ${borderStyle} ${borderColor}`;
+                        break;
+                    case 38: // Смена карусели изображений
+                        const images = prompt("Введите URL изображений, разделенные запятой:");
+                        if (images) {
+                            const imgArray = images.split(',');
+                            let i = 0;
+                            const carousel = setInterval(() => {
+                                outputDiv.innerHTML = `<img src="${imgArray[i].trim()}" style="max-width: 100%;">`;
+                                i = (i + 1) % imgArray.length;
+                            }, 2000);
+                        }
+                        break;
+                    case 39: // Смена прозрачности
+                        const opacity = prompt("Введите уровень прозрачности (от 0 до 1):");
+                        outputDiv.style.opacity = opacity;
+                        break;
+                    case 40: // Переключение видимости
+                        outputDiv.style.display = outputDiv.style.display === 'none' ? 'block' : 'none';
+                        break;
+                    case 41: // Увеличить масштаб содержимого
+                        const zoomLevel = prompt("Введите уровень зума (например, 1.5):");
+                        outputDiv.style.transform = `scale(${zoomLevel})`;
+                        break;
+                    case 42: // Открытие нового окна
+                        window.open('https://example.com');
+                        break;
+                    case 43: // Показать текущую дату
+                        alert(`Текущая дата: ${new Date().toLocaleDateString()}`);
+                        break;
+                    case 44: // Копирование текста в буфер обмена
+                        const copyText = prompt("Введите текст для копирования:");
+                        navigator.clipboard.writeText(copyText).then(() => {
+                            alert('Текст скопирован в буфер обмена!');
+                        }).catch(err => {
+                            console.error('Ошибка при копировании текста:', err);
+                        });
+                        break;
+                    case 45: // Показать случайный элемент из массива
+                        const randomItems = ['Элемент 1', 'Элемент 2', 'Элемент 3', 'Элемент 4'];
+                        const randomItem = randomItems[Math.floor(Math.random() * randomItems.length)];
+                        alert(`Случайный элемент: ${randomItem}`);
+                        break;
+                    case 46: // Изменение прозрачности фона
+                        const backgroundOpacity = prompt("Введите уровень прозрачности фона (от 0 до 1):");
+                        document.body.style.backgroundColor = `rgba(255, 255, 255, ${backgroundOpacity})`;
+                        break;
+                    case 47: // Сохранение текста в локальное хранилище
+                        const saveText = prompt("Введите текст для сохранения в локальное хранилище:");
+                        if (saveText) {
+                            localStorage.setItem('savedText', saveText);
+                            alert('Текст сохранен в локальном хранилище.');
+                        }
+                        break;
+                    case 48: // Заполнение outputDiv сохраненным текстом
+                        const loadedText = localStorage.getItem('savedText');
+                        if (loadedText) {
+                            outputDiv.innerText = loadedText;
+                        } else {
+                            alert('Нет сохраненного текста в локальном хранилище.');
+                        }
+                        break;
+                    case 49: // Создание табуляции для переключения между контентом
+                        const tabs = ['Контент 1', 'Контент 2', 'Контент 3'];
+                        tabs.forEach((tab, index) => {
+                            const tabButton = document.createElement('button');
+                            tabButton.innerText = tab;
+                            tabButton.onclick = () => {
+                                outputDiv.innerText = `Вы выбрали: ${tab}`;
+                            };
+                            outputDiv.appendChild(tabButton);
+                        });
+                        break;
+                    case 50:
+                        const selectedColor = prompt("Введите цвет (например, 'red', '#00ff00', 'rgb(0, 0, 255)'):");
+                        if (selectedColor) {
+                            outputDiv.style.backgroundColor = selectedColor;
+                            alert(`Фон поля вывода изменен на ${selectedColor}`);
+                        } else {
+                            alert('Цвет не был задан.');
+                        }
+                        break;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

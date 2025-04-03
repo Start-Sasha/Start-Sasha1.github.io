@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточки товаров</title>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .card .price {
+            font-size: 1.2em;
+            color: #2c974b;
+            font-weight: bold;
+        }
+
+        .card .category {
+            background: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Наши товары</h1>
+        <div class="products" id="productContainer"></div>
+    </div>
+    <script>
+        // Массив с данными товаров
+        var products = [
+            {
+                id: 1,
+                name: "Смартфон Galaxy S21",
+                price: 79999,
+                category: "Электроника",
+                image: "img/java6-item1.jpg",
+                description: "Флагманский смартфон с отличной камерой"
+            },
+            {
+                id: 2,
+                name: "Ноутбук ProBook",
+                price: 89999,
+                category: "Компьютеры",
+                image: "img/java6-item2.jpg",
+                description: "Мощный ноутбук для работы"
+            },
+            {
+                id: 3,
+                name: "Наушники AirPods",
+                price: 19999,
+                category: "Аксессуары",
+                image: "img/java6-item3.jpg",
+                description: "Беспроводные наушники премиум класса"
+            },
+            {
+                id: 4,
+                name: "Планшет iPad",
+                price: 49999,
+                category: "Электроника",
+                image: "img/java6-item4.jpg",
+                description: "Планшет для работы и развлечений"
+            },
+            {
+                id: 5,
+                name: "Умные часы Watch",
+                price: 29999,
+                category: "Аксессуары",
+                image: "img/java6-item5.jpg",
+                description: "Стильные смарт-часы"
+            },
+            {
+                id: 6,
+                name: "Монитор UltraWide",
+                price: 39999,
+                category: "Компьютеры",
+                image: "img/java6-item6.jpg",
+                description: "Широкоформатный монитор"
+            },
+            {
+                id: 7,
+                name: "Клавиатура Mechanical",
+                price: 9999,
+                category: "Аксессуары",
+                image: "img/java6-item7.jpg",
+                description: "Механическая игровая клавиатура"
+            },
+            {
+                id: 8,
+                name: "Мышь Gaming Pro",
+                price: 4999,
+                category: "Аксессуары",
+                image: "img/java6-item8.jpg",
+                description: "Профессиональная игровая мышь"
+            }
+        ];
+        // Функция для форматирования цены
+        function formatPrice(price) {
+            return price.toLocaleString('ru-RU') + ' ₽';
+        }
+        // Функция создания карточки товара
+        function createProductCard(product) {
+            return `
+<div class="card">
+<img src="${product.image}" alt="${product.name}">
+<h3>${product.name}</h3>
+<div class="category">${product.category}</div>
+<p>${product.description}</p>
+<div class="price">${formatPrice(product.price)}</div>
+<button class="btn" onclick="addToCart('${product.name}')">
+В корзину
+</button>
+</div>
+`;
+        }
+        // Функция добавления в корзину
+        function addToCart(productName) {
+            alert('Товар ' + productName + ' добавлен в корзину!');
+        }
+        // Функция отрисовки всех карточек
+        function renderProducts() {
+            var productHTML = products.map(function (product) {
+                return createProductCard(product);
+            }).join('');
+            document.getElementById('productContainer').innerHTML =
+                productHTML;
+        }
+        // Вызов функции отрисовки при загрузке страницы
+        renderProducts();
+    </script>
+</body>
+
+</html>

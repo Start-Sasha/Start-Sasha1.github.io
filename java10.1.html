@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация пользователя</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Регистрация пользователя</h1>
+        <div id="registration">
+            <input type="text" id="name" placeholder="Введите ваше имя">
+            <input type="number" id="age" placeholder="Введите ваш возраст">
+            <button onclick="startRegistration()">Начать</button>
+        </div>
+        <div id="questions" style="display: none;">
+            <h2>Ответьте на следующие вопросы:</h2>
+            <div id="question-container"></div>
+            <input type="text" id="answer" placeholder="Ваш ответ (введите номер)">
+            <button onclick="submitAnswer()">Ответить</button>
+        </div>
+        <div id="result" style="display: none;"></div>
+    </div>
+    <script>
+        let questions = [
+            "Какой ваш любимый цвет? (1 - Красный, 2 - Синий, 3 - Зеленый)",
+            "Какой ваш любимый фрукт? (1 - Яблоко, 2 - Банан, 3 - Апельсин)",
+            "Какой ваш любимый вид спорта? (1 - Футбол, 2 - Баскетбол, 3 - Теннис)",
+            "Какой ваш любимый сезон? (1 - Зима, 2 - Лето, 3 - Осень)",
+            "Какой ваш любимый фильм? (1 - Комедия, 2 - Ужасы, 3 - Драма)",
+            "Какой ваш любимый напиток? (1 - Вода, 2 - Кофе, 3 - Чай)",
+            "Какой ваш любимый вид музыки? (1 - Поп, 2 - Рок, 3 - Классика)",
+            "Какой ваш любимый животное? (1 - Собака, 2 - Кошка, 3 - Птица)",
+            "Какой ваш любимый город? (1 - Москва, 2 - Санкт-Петербург, 3 - Новосибирск) ",
+            "Какой ваш любимый вид искусства? (1 - Живопись, 2 - Скульптура, 3 - Музыка) "
+        ];
+        let currentQuestion = 0;
+        function startRegistration() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            if (!name || !age) {
+                alert("Пожалуйста, введите имя и возраст.");
+                return;
+            }
+            document.getElementById('registration').style.display = 'none';
+            document.getElementById('questions').style.display = 'block';
+            showQuestion();
+        }
+        function showQuestion() {
+            if (currentQuestion < questions.length) {
+                document.getElementById('question-container').innerText =
+                    questions[currentQuestion];
+            } else {
+                document.getElementById('questions').style.display = 'none';
+                document.getElementById('result').style.display = 'block';
+                document.getElementById('result').innerText = "Спасибо за участие!";
+            }
+        }
+        function submitAnswer() {
+            const answer = document.getElementById('answer').value;
+            let feedback = "";
+            // Обработка ответа с помощью switch case
+            switch (answer) {
+                case '1':
+                    feedback = "Вы выбрали первый вариант!";
+                    break;
+                case '2':
+                    feedback = "Вы выбрали второй вариант!";
+                    break;
+                case '3':
+                    feedback = "Вы выбрали третий вариант!";
+                    break;
+                default:
+                    feedback = "Некорректный ответ. Пожалуйста, введите 1, 2 или 3.";
+                    break;
+            }
+            // Выводим обратную связь и переходим к следующему вопросу
+            alert(feedback);
+            currentQuestion++;
+            document.getElementById('answer').value = ''; // Сброс поля ввода
+            showQuestion();
+        }
+    </script>
+</body>
+
+</html>

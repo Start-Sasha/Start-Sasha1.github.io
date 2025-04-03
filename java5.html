@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №5</title>
+    <linK rel="stylesheet" href="css/java-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="big">Лабораторная работа №5</h1>
+        <div class="element">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Условие</th>
+                    <th>Код</th>
+                    <th>Действие</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="left-align">5.9. Напечатать таблицу перевода расстояний в дюймах в сантиметры для значений 10, 11, ..., 22 дюйма
+                        (1 дюйм = 25,4 мм).</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 10; i <= 22; i++) {
+        let inches = i;
+        let centimeters = i * 2.54; // 1 дюйм = 2.54 см
+        let tableRow = document.createElement('tr');
+        let inchesCell = document.createElement('td');
+        let centimetersCell = document.createElement('td');
+        inchesCell.textContent = inches;
+        centimetersCell.textContent = centimeters.toFixed(2);
+        tableRow.appendChild(inchesCell);
+        tableRow.appendChild(centimetersCell);
+        document.getElementById('tableBody1').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Таблица перевода дюймов в сантиметры:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Дюймы&lt;/th&gt;&lt;th&gt;Сантиметры&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 10; i <= 22; i++) {
+        let inches = i;
+        let centimeters = i * 2.54; // 1 дюйм = 2.54 см
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + inches + "&lt;/td&gt;&lt;td&gt;" + centimeters.toFixed(2) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>Дюймы</th>
+                                <th>Сантиметры</th>
+                            </tr>
+                            <tbody id="tableBody1"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.9.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="left-align">5.10. Напечатать таблицу перевода 1, 2, ... 20 долларов США в рубли по текущему курсу
+                        (значение курса вводится с клавиатуры).</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    function generateTable() {
+        let exchangeRate = parseFloat(document.getElementById('exchangeRate').value);
+        let tableBody = document.getElementById('tableBody2');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let i = 1; i <= 20; i++) {
+            let dollars = i;
+            let rubles = i * exchangeRate;
+            let tableRow = document.createElement('tr');
+            let dollarsCell = document.createElement('td');
+            let rublesCell = document.createElement('td');
+            dollarsCell.textContent = dollars;
+            rublesCell.textContent = rubles.toFixed(2);
+            tableRow.appendChild(dollarsCell);
+            tableRow.appendChild(rublesCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    let exchangeRate = parseFloat(prompt("Введите курс доллара (рубли за 1 доллар):"));
+    document.writeln("&lt;h2&gt;Таблица перевода долларов в рубли:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Доллары&lt;/th&gt;&lt;th&gt;Рубли&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 1; i <= 20; i++) {
+        let dollars = i;
+        let rubles = i * exchangeRate;
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + dollars + "&lt;/td&gt;&lt;td&gt;" + rubles.toFixed(2) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <label for="exchangeRate">Введите курс доллара (рубли за 1 доллар):</label>
+                        <input type="number" id="exchangeRate" step="0.01">
+                        <button onclick="generateTable()">Создать таблицу</button>
+                        <table border="1">
+                            <tr>
+                                <th>Доллары</th>
+                                <th>Рубли</th>
+                            </tr>
+                            <tbody id="tableBody2"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.10.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="left-align">5.12. Плотность воздуха убывает с высотой по закону p = p0e–hz,<br>
+                        где p – плотность на высоте h метров, p0 = 1,29 кг/м3, z = 1,25·10–4.<br>
+                        Напечатать таблицу зависимости плотности от высоты для значений от 0 до 1000 м через каждые 100 м.</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    const p0 = 1.29; // Плотность на уровне моря
+    const z = 1.25e-4; // Коэффициент
+    for (let h = 0; h <= 1000; h += 100) {
+        let p = p0 * Math.exp(-z * h);
+        let tableRow = document.createElement('tr');
+        let heightCell = document.createElement('td');
+        let densityCell = document.createElement('td');
+        heightCell.textContent = h;
+        densityCell.textContent = p.toFixed(4);
+        tableRow.appendChild(heightCell);
+        tableRow.appendChild(densityCell);
+        document.getElementById('tableBody3').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    const p0 = 1.29; // Плотность на уровне моря
+    const z = 1.25e-4; // Коэффициент
+    document.writeln("&lt;h2&gt;Таблица зависимости плотности воздуха от высоты:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Высота (м)&lt;/th&gt;&lt;th&gt;Плотность (кг/м³)&lt;/th&gt;&lt;/tr&gt;");
+    for (let h = 0; h <= 1000; h += 100) {
+        let p = p0 * Math.exp(-z * h);
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + h + "&lt;/td&gt;&lt;td&gt;" + p.toFixed(4) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td class="height">
+                        <table id="small" border="1">
+                            <tr>
+                                <th>Высота (м)</th>
+                                <th>Плотность (кг/м³)</th>
+                            </tr>
+                            <tbody id="tableBody3"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.12.html"><button class="margin-button">Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="left-align">5.13. Напечатать таблицу умножения на 7:<br>
+                        1 х 7 = 7<br>
+                        2 х 7 = 14<br>
+                        ...<br>
+                        9 х 7 = 63</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * 7;
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        let resultCell = document.createElement('td');
+        numberCell.textContent = number + " × 7";
+        resultCell.textContent = result;
+        tableRow.appendChild(numberCell);
+        tableRow.appendChild(resultCell);
+        document.getElementById('tableBody4').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Таблица умножения на 7:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;th&gt;Результат&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * 7;
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + number + " × 7&lt;/td&gt;&lt;td&gt;" + result + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table id="small" border="1">
+                            <tr>
+                                <th>Число</th>
+                                <th>Результат</th>
+                            </tr>
+                            <tbody id="tableBody4"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.13.html"><button class="margin-button">Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="left-align">5.14. Напечатать таблицу умножения на 9:<br>
+                        9 х 1 = 9<br>
+                        9 х 2 = 18<br>
+                        ...<br>
+                        9 х 9 = 81</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * 9;
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        let resultCell = document.createElement('td');
+        numberCell.textContent = "9 × " + number;
+        resultCell.textContent = result;
+        tableRow.appendChild(numberCell);
+        tableRow.appendChild(resultCell);
+        document.getElementById('tableBody5').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Таблица умножения на 9:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;th&gt;Результат&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * 9;
+        document.writeln("&lt;tr&gt;&lt;td&gt;9 × " + number + "&lt;/td&gt;&lt;td&gt;" + result + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table id="small" border="1">
+                            <tr>
+                                <th>Число</th>
+                                <th>Результат</th>
+                            </tr>
+                            <tbody id="tableBody5"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.14.html"><button class="margin-button">Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="left-align">
+                        5.15. Напечатать таблицу умножения на число n (значение n вводится с клавиатуры; 1 ≤ n ≤ 9).
+                    </td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    function generateTable2() {
+        let n = parseInt(document.getElementById('numberInput').value);
+        let tableBody = document.getElementById('tableBody6');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let i = 1; i <= 9; i++) {
+            let number = i;
+            let result = i * n;
+            let tableRow = document.createElement('tr');
+            let numberCell = document.createElement('td');
+            let resultCell = document.createElement('td');
+            numberCell.textContent = n + " × " + number;
+            resultCell.textContent = result;
+            tableRow.appendChild(numberCell);
+            tableRow.appendChild(resultCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    let n = parseInt(prompt("Введите число n (1 ≤ n ≤ 9):"));
+    document.writeln("&lt;h2&gt;Таблица умножения на число " + n + ":&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;th&gt;Результат&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * n;
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + n + " × " + number + "&lt;/td&gt;&lt;td&gt;" + result + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <label for="numberInput">Введите число n (1 ≤ n ≤ 9):</label>
+                        <input type="number" id="numberInput" min="1" max="9">
+                        <button onclick="generateTable2()">Создать таблицу</button>
+                        <table id="small" border="1">
+                            <tr>
+                                <th>Число</th>
+                                <th>Результат</th>
+                            </tr>
+                            <tbody id="tableBody6"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.15.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="left-align">
+                        5.16. Напечатать «столбиком» значения sin 2, sin 3, …, sin 15
+                    </td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 2; i <= 15; i++) {
+        let sinValue = Math.sin(i);
+        let tableRow = document.createElement('tr');
+        let xCell = document.createElement('td');
+        let sinCell = document.createElement('td');
+        xCell.textContent = i;
+        sinCell.textContent = sinValue.toFixed(4);
+        tableRow.appendChild(xCell);
+        tableRow.appendChild(sinCell);
+        document.getElementById('tableBody7').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Значения sin:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;x&lt;/th&gt;&lt;th&gt;sin(x)&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 2; i <= 15; i++) {
+        let sinValue = Math.sin(i);
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + i + "&lt;/td&gt;&lt;td&gt;" + sinValue.toFixed(4) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>x</th>
+                                <th>sin(x)</th>
+                            </tr>
+                            <tbody id="tableBody7"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.16.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="left-align">5.17. Рассчитать значения y для значений х, равных 4, 5, ..., 28:<br>
+                        y = 3t2 + 4,87t – 3<br>
+                        t = x + 3
+                    </td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let x = 4; x <= 28; x++) {
+        let t = x + 3;
+        let y = 3 * t * t + 4.87 * t - 3;
+        let tableRow = document.createElement('tr');
+        let xCell = document.createElement('td');
+        let yCell = document.createElement('td');
+        xCell.textContent = x;
+        yCell.textContent = y.toFixed(2);
+        tableRow.appendChild(xCell);
+        tableRow.appendChild(yCell);
+        document.getElementById('tableBody8').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Значения y:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;x&lt;/th&gt;&lt;th&gt;y&lt;/th&gt;&lt;/tr&gt;");
+    for (let x = 4; x <= 28; x++) {
+        let t = x + 3;
+        let y = 3 * t * t + 4.87 * t - 3;
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + x + "&lt;/td&gt;&lt;td&gt;" + y.toFixed(2) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>x</th>
+                                <th>y</th>
+                            </tr>
+                            <tbody id="tableBody8"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.17.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="left-align">5.18. Рассчитать значения z для значений a, равных 2, 3, ..., 17:<br>
+                        z = 4,3t2– 8t + 13<br>
+                        t = 3a</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let a = 2; a <= 17; a++) {
+        let t = 3 * a;
+        let z = 4.3 * t * t - 8 * t + 13;
+        let tableRow = document.createElement('tr');
+        let aCell = document.createElement('td');
+        let zCell = document.createElement('td');
+        aCell.textContent = a;
+        zCell.textContent = z.toFixed(2);
+        tableRow.appendChild(aCell);
+        tableRow.appendChild(zCell);
+        document.getElementById('tableBody9').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Значения z:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;a&lt;/th&gt;&lt;th&gt;z&lt;/th&gt;&lt;/tr&gt;");
+    for (let a = 2; a <= 17; a++) {
+        let t = 3 * a;
+        let z = 4.3 * t * t - 8 * t + 13;
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + a + "&lt;/td&gt;&lt;td&gt;" + z.toFixed(2) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>a</th>
+                                <th>z</th>
+                            </tr>
+                            <tbody id="tableBody9"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.18.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="left-align">5.19. Вывести «столбиком» значения sin 0,1, sin 0,2, …, sin 1,5.</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 0.1; i <= 1.6; i += 0.1) {
+        let sinValue = Math.sin(i);
+        let tableRow = document.createElement('tr');
+        let xCell = document.createElement('td');
+        let sinCell = document.createElement('td');
+        xCell.textContent = i.toFixed(1);
+        sinCell.textContent = sinValue.toFixed(4);
+        tableRow.appendChild(xCell);
+        tableRow.appendChild(sinCell);
+        document.getElementById('tableBody10').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Значения sin:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;x&lt;/th&gt;&lt;th&gt;sin(x)&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 0.1; i <= 1.6; i += 0.1) {
+        let sinValue = Math.sin(i);
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + i.toFixed(1) + "&lt;/td&gt;&lt;td&gt;" + sinValue.toFixed(4) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>x</th>
+                                <th>sin(x)</th>
+                            </tr>
+                            <tbody id="tableBody10"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.19.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="left-align">5.21. Напечатать таблицу стоимости 50, 100, 150, ..., 1000 г сыра (стоимость 1 кг сыра вводится с клавиатуры).</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    function generateTable3() {
+        let pricePerKg = parseFloat(document.getElementById('cheesePrice').value);
+        let tableBody = document.getElementById('tableBody11');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let weight = 50; weight <= 1000; weight += 50) {
+            let cost = (weight / 1000) * pricePerKg;
+            let tableRow = document.createElement('tr');
+            let weightCell = document.createElement('td');
+            let costCell = document.createElement('td');
+            weightCell.textContent = weight;
+            costCell.textContent = cost.toFixed(2);
+            tableRow.appendChild(weightCell);
+            tableRow.appendChild(costCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    let pricePerKg = parseFloat(prompt("Введите стоимость 1 кг сыра (рубли):"));
+    document.writeln("&lt;h2&gt;Таблица стоимости сыра:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Вес (г)&lt;/th&gt;&lt;th&gt;Стоимость (рубли)&lt;/th&gt;&lt;/tr&gt;");
+    for (let weight = 50; weight <= 1000; weight += 50) {
+        let cost = (weight / 1000) * pricePerKg;
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + weight + "&lt;/td&gt;&lt;td&gt;" + cost.toFixed(2) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <label for="cheesePrice">Введите стоимость 1 кг сыра (рубли):</label>
+                        <input type="number" id="cheesePrice" step="0.01">
+                        <button onclick="generateTable3()">Создать таблицу</button>
+                        <table border="1">
+                            <tr>
+                                <th>Вес (г)</th>
+                                <th>Стоимость (рубли)</th>
+                            </tr>
+                            <tbody id="tableBody11"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.21.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="left-align">5.22. Напечатать таблицу стоимости 100, 200, 300, ..., 2000 г конфет (стоимость 1 кг конфет вводится
+                        с клавиатуры).</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    function generateTable4() {
+        let pricePerKg = parseFloat(document.getElementById('candyPrice').value);
+        let tableBody = document.getElementById('tableBody12');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let weight = 100; weight <= 2000; weight += 100) {
+            let cost = (weight / 1000) * pricePerKg;
+            let tableRow = document.createElement('tr');
+            let weightCell = document.createElement('td');
+            let costCell = document.createElement('td');
+            weightCell.textContent = weight;
+            costCell.textContent = cost.toFixed(2);
+            tableRow.appendChild(weightCell);
+            tableRow.appendChild(costCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    let pricePerKg = parseFloat(prompt("Введите стоимость 1 кг конфет (рубли):"));
+    document.writeln("&lt;h2&gt;Таблица стоимости конфет:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Вес (г)&lt;/th&gt;&lt;th&gt;Стоимость (рубли)&lt;/th&gt;&lt;/tr&gt;");
+    for (let weight = 100; weight <= 2000; weight += 100) {
+        let cost = (weight / 1000) * pricePerKg;
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + weight + "&lt;/td&gt;&lt;td&gt;" + cost.toFixed(2) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <label for="candyPrice">Введите стоимость 1 кг конфет (рубли):</label>
+                        <input type="number" id="candyPrice" step="0.01">
+                        <button onclick="generateTable4()">Создать таблицу</button>
+                        <table border="1">
+                            <tr>
+                                <th>Вес (г)</th>
+                                <th>Стоимость (рубли)</th>
+                            </tr>
+                            <tbody id="tableBody12"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.22.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="left-align">5.23. Вывести «столбиком» следующие числа: 2,1, 2,2, 2,3, ..., 2,8.</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 2.1; i <= 2.9; i += 0.1) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        document.getElementById('tableBody13').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Числа 2,1 - 2,8:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 2.1; i <= 2.9; i += 0.1) {
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + i.toFixed(1) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>Число</th>
+                            </tr>
+                            <tbody id="tableBody13"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.23.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td class="left-align">5.24. Вывести «столбиком» следующие числа: 3,2, 3,2, 3,3, ..., 3,9.</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 3.2; i <= 4; i += 0.1) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        getElementById('tableBody14').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Числа 3,2 - 3,9:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 3.2; i <= 4; i += 0.1) {
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + i.toFixed(1) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>Число</th>
+                            </tr>
+                            <tbody id="tableBody14"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.24.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td class="left-align">5.25. Вывести «столбиком» следующие числа: 2,2, 2,4, 2,6, ..., 4,2.</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 2.2; i <= 4.4; i += 0.2) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        document.getElementById('tableBody15').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Числа 2,2 - 4,2:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 2.2; i <= 4.4; i += 0.2) {
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + i.toFixed(1) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>Число</th>
+                            </tr>
+                            <tbody id="tableBody15"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.25.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td class="left-align">5.26. Вывести «столбиком» следующие числа: 4,4, 4,6, 4,8, ..., 6,4</td>
+                    <td class="left-align"><b>Первый способ:</b>
+                        <pre>
+&lt;script&gt;
+    for (let i = 4.4; i <= 6.6; i += 0.2) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        document.getElementById('tableBody16').appendChild(tableRow);
+    }
+&lt;/script&gt;</pre><br>
+                        <b>Второй способ:</b>
+                        <pre>
+&lt;script&gt;
+    document.writeln("&lt;h2&gt;Числа 4,4 - 6,4:&lt;/h2&gt;");
+    document.writeln("&lt;table border='1'&gt;");
+    document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;/tr&gt;");
+    for (let i = 4.4; i <= 6.6; i += 0.2) {
+        document.writeln("&lt;tr&gt;&lt;td&gt;" + i.toFixed(1) + "&lt;/td&gt;&lt;/tr&gt;");
+    }
+    document.writeln("&lt;/table&gt;");
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <th>Число</th>
+                            </tr>
+                            <tbody id="tableBody16"></tbody>
+                        </table>
+                        <br>
+                        <a target="_blank" href="java-2nd-way/java5.26.html"><button>Второй вариант</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td class="left-align">1. Какая разница между использованием document.getElementById и document.getElementsByClassName для
+                        доступа к элементам DOM в JavaScript? </td>
+                    <td class="left-align">
+                        <pre>
+document.getElementById:
+    - Возвращает один элемент по его уникальному идентификатору (id).
+    - Если элемент с указанным id не найден, возвращает null.
+    - Пример:
+        let element = document.getElementById('myElement');
+
+document.getElementsByClassName:
+    - Возвращает коллекцию элементов (HTMLCollection), которые имеют указанный класс.
+    - Если элементы не найдены, возвращает пустую коллекцию.
+    - Пример:
+        let elements = document.getElementsByClassName('myClass');
+
+Разница:
+    - getElementById работает с уникальными идентификаторами и возвращает один элемент.
+    - getElementsByClassName работает с классами и возвращает коллекцию элементов.</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td class="left-align">2. Какой метод JavaScript подходит для выбора нескольких элементов с одним селектором, а не только
+                        первого? </td>
+                    <td class="left-align">
+                        <pre>
+Для выбора нескольких элементов с одним селектором используется метод document.querySelectorAll.
+
+document.querySelectorAll:
+    - Возвращает NodeList всех элементов, соответствующих указанному CSS-селектору.
+    - Пример:
+        let elements = document.querySelectorAll('.myClass');</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td class="left-align">3. Как можно динамически создавать элементы веб-страницы с помощью JavaScript? </td>
+                    <td class="left-align">
+                        <pre>
+Для динамического создания элементов используется метод document.createElement и методы для 
+добавления элементов в DOM, такие как appendChild или insertBefore.
+
+Пример:
+
+// Создание элемента
+let newElement = document.createElement('div');
+newElement.textContent = 'Новый элемент';
+
+// Добавление элемента в DOM
+document.body.appendChild(newElement);</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td class="left-align">4. Какие основные шаги нужно выполнить для выведения динамически созданной таблицы на веб-страницу
+                        с использованием document.writeln?</td>
+                    <td class="left-align">
+                        <pre>
+1. Открыть таблицу с помощью document.writeln.
+2. Использовать цикл для генерации строк и ячеек.
+3. Закрыть таблицу.
+
+Пример:
+
+document.writeln("&lt;h2&gt;Таблица:&lt;/h2&gt;");
+document.writeln("&lt;table border='1'&gt;");
+document.writeln("&lt;tr&gt;&lt;th&gt;Число&lt;/th&gt;&lt;th&gt;Квадрат&lt;/th&gt;&lt;/tr&gt;");
+for (let i = 1; i <= 5; i++) {
+    document.writeln("&lt;tr&gt;&lt;td&gt;" + i + "&lt;/td&gt;&lt;td&gt;" + (i * i) + "&lt;/td&gt;&lt;/tr&gt;");
+}
+document.writeln("&lt;/table&gt;");</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td class="left-align">5. Какие методы JavaScript нужно использовать для установки кодировки символов и масштабирования
+                        страницы на мобильных устройствах?</td>
+                    <td class="left-align">
+                        <pre>
+- Кодировка символов:
+    Устанавливается с помощью тега &lt;meta&gt; в &lt;head&gt;:
+    &lt;meta charset="UTF-8"&gt;
+
+- Масштабирование на мобильных устройствах:
+    Устанавливается с помощью тега &lt;meta&gt;:
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td class="left-align">6. Как можно создать таблицу соответствия между данными, используя цикл for и динамическое добавление
+                        строк через JavaScript?</td>
+                    <td class="left-align">
+                        <pre>
+Пример:
+
+let table = document.createElement('table');
+table.border = '1';
+
+for (let i = 1; i <= 5; i++) {
+    let row = table.insertRow();
+    let cell1 = row.insertCell();
+    let cell2 = row.insertCell();
+    cell1.textContent = i;
+    cell2.textContent = i * i;
+}
+
+document.body.appendChild(table);</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td class="left-align">7. Как можно форматировать числовые значения перед их выводом на веб-страницу в JavaScript?</td>
+                    <td class="left-align">
+                        <pre>
+Для форматирования чисел используются методы:
+    - toFixed(n) — округляет число до n знаков после запятой.
+    - toLocaleString() — форматирует число в соответствии с локалью.
+
+Пример:
+
+let number = 1234.5678;
+console.log(number.toFixed(2)); // "1234.57"
+console.log(number.toLocaleString()); // "1,234.568" (зависит от локали)</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td class="left-align">8. Какое преимущество имеет использование document.querySelector перед document.getElementById при
+                        выборе элементов на веб-странице?</td>
+                    <td class="left-align">
+                        <pre>
+document.querySelector:
+    - Позволяет использовать любой CSS-селектор.
+    - Возвращает первый элемент, соответствующий селектору.
+    - Пример:
+        let element = document.querySelector('#myId .myClass');
+
+document.getElementById:
+    - Работает только с id.
+    - Возвращает один элемент.
+
+Преимущество:
+querySelector более гибкий, так как поддерживает сложные селекторы.</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td class="left-align">9. Как можно изменить текстовое содержимое элемента <span> на веб-странице при нажатии на кнопки "+"
+                        и "-" с помощью JavaScript? </td>
+                    <td class="left-align">
+                        <pre>
+Пример:
+
+&lt;p&gt;Значение: &lt;span id="value"&gt;0&lt;/span&gt;&lt;/p&gt;
+&lt;button id="increase"&gt;+&lt;/button&gt;
+&lt;button id="decrease"&gt;-&lt;/button&gt;
+
+&lt;script&gt;
+    let valueElement = document.getElementById('value');
+    let increaseButton = document.getElementById('increase');
+    let decreaseButton = document.getElementById('decrease');
+
+    increaseButton.addEventListener('click', () => {
+        valueElement.textContent = parseInt(valueElement.textContent) + 1;
+    });
+
+    decreaseButton.addEventListener('click', () => {
+        valueElement.textContent = parseInt(valueElement.textContent) - 1;
+    });
+&lt;/script&gt;</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td class="left-align">10. Как можно организовать динамическое обновление содержимого таблицы без перезагрузки страницы
+                        при помощи JavaScript?</td>
+                    <td class="left-align">
+                        <pre>
+1. Использовать JavaScript для изменения содержимого таблицы.
+2. Обновлять данные с помощью AJAX или Fetch API.
+3. Перерисовывать таблицу на основе новых данных.
+
+Пример:
+
+function updateTable(data) {
+    let tableBody = document.getElementById('tableBody');
+    tableBody.innerHTML = ''; // Очистка таблицы
+
+    data.forEach(item => {
+        let row = tableBody.insertRow();
+        let cell1 = row.insertCell();
+        let cell2 = row.insertCell();
+        cell1.textContent = item.name;
+        cell2.textContent = item.value;
+    });
+}
+
+// Пример обновления данных
+fetch('data.json')
+    .then(response => response.json())
+    .then(data => updateTable(data));</pre>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    for (let i = 10; i <= 22; i++) {
+        let inches = i;
+        let centimeters = i * 2.54; // 1 дюйм = 2.54 см
+        let tableRow = document.createElement('tr');
+        let inchesCell = document.createElement('td');
+        let centimetersCell = document.createElement('td');
+        inchesCell.textContent = inches;
+        centimetersCell.textContent = centimeters.toFixed(2);
+        tableRow.appendChild(inchesCell);
+        tableRow.appendChild(centimetersCell);
+        document.getElementById('tableBody1').appendChild(tableRow);
+    }
+    let exchangeRate = 1;
+    for (let i = 1; i <= 20; i++) {
+        let dollars = i;
+        let rubles = i * exchangeRate;
+        let tableRow = document.createElement('tr');
+        let dollarsCell = document.createElement('td');
+        let rublesCell = document.createElement('td');
+        dollarsCell.textContent = dollars;
+        rublesCell.textContent = rubles.toFixed(2);
+        tableRow.appendChild(dollarsCell);
+        tableRow.appendChild(rublesCell);
+        document.getElementById('tableBody2').appendChild(tableRow);
+    }
+    function generateTable() {
+        let exchangeRate = parseFloat(document.getElementById('exchangeRate').value);
+        let tableBody = document.getElementById('tableBody2');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let i = 1; i <= 20; i++) {
+            let dollars = i;
+            let rubles = i * exchangeRate;
+            let tableRow = document.createElement('tr');
+            let dollarsCell = document.createElement('td');
+            let rublesCell = document.createElement('td');
+            dollarsCell.textContent = dollars;
+            rublesCell.textContent = rubles.toFixed(2);
+            tableRow.appendChild(dollarsCell);
+            tableRow.appendChild(rublesCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+    const p0 = 1.29; // Плотность на уровне моря
+    const z = 1.25e-4; // Коэффициент
+    for (let h = 0; h <= 1000; h += 100) {
+        let p = p0 * Math.exp(-z * h);
+        let tableRow = document.createElement('tr');
+        let heightCell = document.createElement('td');
+        let densityCell = document.createElement('td');
+        heightCell.textContent = h;
+        densityCell.textContent = p.toFixed(4);
+        tableRow.appendChild(heightCell);
+        tableRow.appendChild(densityCell);
+        document.getElementById('tableBody3').appendChild(tableRow);
+    }
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * 7;
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        let resultCell = document.createElement('td');
+        numberCell.textContent = number + " × 7";
+        resultCell.textContent = result;
+        tableRow.appendChild(numberCell);
+        tableRow.appendChild(resultCell);
+        document.getElementById('tableBody4').appendChild(tableRow);
+    }
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * 9;
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        let resultCell = document.createElement('td');
+        numberCell.textContent = "9 × " + number;
+        resultCell.textContent = result;
+        tableRow.appendChild(numberCell);
+        tableRow.appendChild(resultCell);
+        document.getElementById('tableBody5').appendChild(tableRow);
+    }
+    let n = 1;
+    for (let i = 1; i <= 9; i++) {
+        let number = i;
+        let result = i * n;
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        let resultCell = document.createElement('td');
+        numberCell.textContent = n + " × " + number;
+        resultCell.textContent = result;
+        tableRow.appendChild(numberCell);
+        tableRow.appendChild(resultCell);
+        document.getElementById('tableBody6').appendChild(tableRow);
+    }
+    function generateTable2() {
+        let n = parseInt(document.getElementById('numberInput').value);
+        let tableBody = document.getElementById('tableBody6');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let i = 1; i <= 9; i++) {
+            let number = i;
+            let result = i * n;
+            let tableRow = document.createElement('tr');
+            let numberCell = document.createElement('td');
+            let resultCell = document.createElement('td');
+            numberCell.textContent = n + " × " + number;
+            resultCell.textContent = result;
+            tableRow.appendChild(numberCell);
+            tableRow.appendChild(resultCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+    for (let i = 2; i <= 15; i++) {
+        let sinValue = Math.sin(i);
+        let tableRow = document.createElement('tr');
+        let xCell = document.createElement('td');
+        let sinCell = document.createElement('td');
+        xCell.textContent = i;
+        sinCell.textContent = sinValue.toFixed(4);
+        tableRow.appendChild(xCell);
+        tableRow.appendChild(sinCell);
+        document.getElementById('tableBody7').appendChild(tableRow);
+    }
+    for (let x = 4; x <= 28; x++) {
+        let t = x + 3;
+        let y = 3 * t * t + 4.87 * t - 3;
+        let tableRow = document.createElement('tr');
+        let xCell = document.createElement('td');
+        let yCell = document.createElement('td');
+        xCell.textContent = x;
+        yCell.textContent = y.toFixed(2);
+        tableRow.appendChild(xCell);
+        tableRow.appendChild(yCell);
+        document.getElementById('tableBody8').appendChild(tableRow);
+    }
+    for (let a = 2; a <= 17; a++) {
+        let t = 3 * a;
+        let z = 4.3 * t * t - 8 * t + 13;
+        let tableRow = document.createElement('tr');
+        let aCell = document.createElement('td');
+        let zCell = document.createElement('td');
+        aCell.textContent = a;
+        zCell.textContent = z.toFixed(2);
+        tableRow.appendChild(aCell);
+        tableRow.appendChild(zCell);
+        document.getElementById('tableBody9').appendChild(tableRow);
+    }
+    for (let i = 0.1; i <= 1.6; i += 0.1) {
+        let sinValue = Math.sin(i);
+        let tableRow = document.createElement('tr');
+        let xCell = document.createElement('td');
+        let sinCell = document.createElement('td');
+        xCell.textContent = i.toFixed(1);
+        sinCell.textContent = sinValue.toFixed(4);
+        tableRow.appendChild(xCell);
+        tableRow.appendChild(sinCell);
+        document.getElementById('tableBody10').appendChild(tableRow);
+    }
+    let pricePerKg = 1;
+    for (let weight = 50; weight <= 1000; weight += 50) {
+        let cost = (weight / 1000) * pricePerKg;
+        let tableRow = document.createElement('tr');
+        let weightCell = document.createElement('td');
+        let costCell = document.createElement('td');
+        weightCell.textContent = weight;
+        costCell.textContent = cost.toFixed(2);
+        tableRow.appendChild(weightCell);
+        tableRow.appendChild(costCell);
+        document.getElementById('tableBody11').appendChild(tableRow);
+    }
+    function generateTable3() {
+        let pricePerKg = parseFloat(document.getElementById('cheesePrice').value);
+        let tableBody = document.getElementById('tableBody11');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let weight = 50; weight <= 1000; weight += 50) {
+            let cost = (weight / 1000) * pricePerKg;
+            let tableRow = document.createElement('tr');
+            let weightCell = document.createElement('td');
+            let costCell = document.createElement('td');
+            weightCell.textContent = weight;
+            costCell.textContent = cost.toFixed(2);
+            tableRow.appendChild(weightCell);
+            tableRow.appendChild(costCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+    let pricePerKg1 = 1;
+    for (let weight = 100; weight <= 2000; weight += 100) {
+        let cost = (weight / 1000) * pricePerKg1;
+        let tableRow = document.createElement('tr');
+        let weightCell = document.createElement('td');
+        let costCell = document.createElement('td');
+        weightCell.textContent = weight;
+        costCell.textContent = cost.toFixed(2);
+        tableRow.appendChild(weightCell);
+        tableRow.appendChild(costCell);
+        document.getElementById('tableBody12').appendChild(tableRow);
+    }
+    function generateTable4() {
+        let pricePerKg = parseFloat(document.getElementById('candyPrice').value);
+        let tableBody = document.getElementById('tableBody12');
+        tableBody.innerHTML = ''; // Очистка таблицы
+        for (let weight = 100; weight <= 2000; weight += 100) {
+            let cost = (weight / 1000) * pricePerKg;
+            let tableRow = document.createElement('tr');
+            let weightCell = document.createElement('td');
+            let costCell = document.createElement('td');
+            weightCell.textContent = weight;
+            costCell.textContent = cost.toFixed(2);
+            tableRow.appendChild(weightCell);
+            tableRow.appendChild(costCell);
+            tableBody.appendChild(tableRow);
+        }
+    }
+    for (let i = 2.1; i <= 2.9; i += 0.1) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        document.getElementById('tableBody13').appendChild(tableRow);
+    }
+    for (let i = 3.2; i <= 4; i += 0.1) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        document.getElementById('tableBody14').appendChild(tableRow);
+    }
+    for (let i = 2.2; i <= 4.4; i += 0.2) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        document.getElementById('tableBody15').appendChild(tableRow);
+    }
+    for (let i = 4.4; i <= 6.6; i += 0.2) {
+        let tableRow = document.createElement('tr');
+        let numberCell = document.createElement('td');
+        numberCell.textContent = i.toFixed(1);
+        tableRow.appendChild(numberCell);
+        document.getElementById('tableBody16').appendChild(tableRow);
+    }
+</script>
+</html>

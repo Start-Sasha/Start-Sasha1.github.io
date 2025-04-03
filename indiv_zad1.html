@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="counterPlus()">+</button>
+    <button onclick="counterMinus()">-</button>
+    <span id="count">0</span>
+    <script>
+        let count=document.getElementById("count")
+        function counterPlus() {
+            let temp = parseInt(count.innerText)
+            temp += 1
+            count.innerText = temp
+        }
+        function counterMinus() {
+            let temp = parseInt(count.innerText)
+            temp -= 1
+            count.innerText = temp
+        }
+    </script>
+</body>
+</html>

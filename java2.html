@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №2</title>
+    <linK rel="stylesheet" href="css/java-style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="big">Лабораторная работа №2</h1>
+        <div class="element">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Условие</th>
+                    <th>Код</th>
+                    <th>Действие</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="left-align">
+                        <b>Описание работы:</b>
+                        В данной лабораторной работе мы создадим HTML-страницу, на
+                        которой будут размещены счетчики и кнопки для их изменения. Мы будем
+                        использовать JavaScript для обработки событий нажатия кнопок и изменения
+                        значений счетчиков.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;span id="counter1"&gt;0&lt;/span&gt;
+    &lt;button onclick="incrementCounter(1)"&gt;+&lt;/button&gt;
+    &lt;div id="counter2"&gt;0&lt;/div&gt;
+    &lt;button onclick="decrementCounter(2)"&gt;-&lt;/button&gt;
+    &lt;p id="counter3"&gt;0&lt;/p&gt;
+    &lt;button onclick="incrementCounter(3)"&gt;+&lt;/button&gt;
+    &lt;h1 id="counter4"&gt;0&lt;/h1&gt;
+    &lt;button onclick="decrementCounter(4)"&gt;-&lt;/button&gt;
+
+    &lt;script&gt;
+        function incrementCounter(counterNumber) {
+            let counterElement = document.getElementById(`counter${counterNumber}`);
+            let currentValue = parseInt(counterElement.innerHTML);
+            counterElement.innerHTML = currentValue + 1;
+        }
+
+        function decrementCounter(counterNumber) {
+            let counterElement = document.getElementById(`counter${counterNumber}`);
+            let currentValue = parseInt(counterElement.innerHTML);
+            counterElement.innerHTML = currentValue - 1;
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <span id="counter1">0</span>
+                        <button onclick="incrementCounter(1)">+</button>
+                        <div id="counter2">0</div>
+                        <button onclick="decrementCounter(2)">-</button>
+                        <p id="counter3">0</p>
+                        <button onclick="incrementCounter(3)">+</button>
+                        <h1 id="counter4">0</h1>
+                        <button onclick="decrementCounter(4)">-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="left-align">Как с помощью JavaScript получить элемент по его ID? Приведите
+                        пример кода.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;span id="count"&gt;100&lt;/span&gt;
+    &lt;button onclick="Counter()"&gt;+&lt;/button&gt;
+
+    &lt;script&gt;
+        function Counter() {
+            let counterElement = document.getElementById("count");
+            let currentValue = parseInt(counterElement.innerHTML);
+            counterElement.innerHTML = currentValue + 1;
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <span id="count">100</span>
+                        <button onclick="Counter()">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="left-align">Что такое событие в JavaScript? Приведите примеры событий.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button onclick="clicker()"&gt;Выполнить onclick&lt;/button&gt;
+    &lt;button onmousedown="mouser()"&gt;Выполнить onmousedown&lt;/button&gt;
+
+    &lt;script&gt;
+        function clicker() {
+            alert("onclick работает!");
+        }
+
+        function mouser() {
+            alert("onmousedown работает!");
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <button onclick="clicker()">Выполнить onclick</button>
+                        <button onmousedown="mouser()">Выполнить onmousedown</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="left-align">Как добавить обработчик события на кнопку в JavaScript?</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;button id="event_button"&gt;Выполнить addEventListener&lt;/button&gt;
+
+    &lt;script&gt;
+        let event_button = document.getElementById('event_button');
+        event_button.addEventListener('click', function() {
+            alert('addEventListener работает!');
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td><button id="event_button">Выполнить addEventListener</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="left-align">Как изменить текст элемента с помощью JavaScript? Напишите
+                        соответствующий код.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;span id="change_span"&gt;Исходный текст&lt;/span&gt;
+    &lt;button onclick="changeText()" id="change_button"&gt;Изменить текст&lt;/button&gt;
+
+    &lt;script&gt;
+        function changeText() {
+            document.getElementById('change_span').innerText = 'Новый текст';
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <span id="change_span">Исходный текст</span>
+                        <button onclick="changeText()" id="change_button">Изменить текст</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="left-align"> Что такое массивы в JavaScript и как их использовать для работы с
+                        элементами DOM?</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;div class="item"&gt;Элемент 1&lt;/div&gt;
+    &lt;div class="item"&gt;Элемент 2&lt;/div&gt;
+    &lt;div class="item"&gt;Элемент 3&lt;/div&gt;
+    &lt;button onclick="changeArrayText()" id="buttonArray"&gt;Изменить текст&lt;/button&gt;
+
+    &lt;script&gt;
+        function changeText() {
+            document.getElementById('change_span').innerText = 'Новый текст';
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <div class="item">Элемент 1</div>
+                        <div class="item">Элемент 2</div>
+                        <div class="item">Элемент 3</div>
+                        <button onclick="changeArrayText()" id="buttonArray">Изменить текст</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="left-align">Как удалить элемент из DOM с помощью JavaScript? Приведите
+                        пример.</td>
+                    <td class="left-align">
+                        <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;span id="remove_span"&gt;Исходный текст&lt;/span&gt;
+    &lt;button onclick="removeText()" id="remove_button"&gt;Удалить текст&lt;/button&gt;
+
+    &lt;script&gt;
+        function removeText() {
+            let element = document.getElementById('remove_span');
+            element.remove();
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                    </td>
+                    <td>
+                        <span id="remove_span">Исходный текст</span>
+                        <button onclick="removeText()" id="remove_button">Удалить текст</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    function incrementCounter(counterNumber) {
+        let counterElement =
+        document.getElementById(`counter${counterNumber}`);
+        let currentValue = parseInt(counterElement.innerHTML);
+        counterElement.innerHTML = currentValue + 1;
+    }
+
+    function decrementCounter(counterNumber) {
+        let counterElement =
+        document.getElementById(`counter${counterNumber}`);
+        let currentValue = parseInt(counterElement.innerHTML);
+        counterElement.innerHTML = currentValue - 1;
+    }
+
+    function Counter() {
+            let counterElement = document.getElementById("count");
+            let currentValue = parseInt(counterElement.innerHTML);
+            counterElement.innerHTML = currentValue + 1;
+    }
+
+    function clicker() {
+        alert("onclick работает!");
+    }
+
+    function mouser() {
+        alert("onmousedown работает!");
+    }
+
+    let event_button = document.getElementById('event_button');
+    event_button.addEventListener('click', function() {
+        alert('addEventListener работает!');
+    });
+    
+    function changeText() {
+        document.getElementById('change_span').innerText = 'Новый текст';
+    }
+
+    function changeArrayText() {
+        let items = Array.from(document.getElementsByClassName('item'));
+        items.forEach((item, index) => {
+            item.innerText = `Новый текст для элемента ${index + 1}`;
+        });
+    }
+
+    function removeText() {
+        let element = document.getElementById('remove_span');
+        element.remove();
+    }
+</script>
+</html>

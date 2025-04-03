@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #F2FFFF;
+}
+
+header {
+    background: #12B75C;
+}
+
+.header {
+    display: flex;
+    background: #12B75C;
+    margin: auto;
+    width: 1280px;
+    height: 78px;
+}
+
+.logo {
+    height: 70px;
+    margin: auto;
+}
+
+.search {
+    background: #fff;
+    border-radius: 13px;
+    height: 40px;
+    width: 750px;
+    margin: auto;
+}
+
+.search-text {
+    margin: 10px;
+    color: #808080;
+    font-size: 16px;
+}
+
+#header-img {
+    height: 45px;
+    margin: auto;
+}
+
+.page {
+    width: 1280px;
+    margin: 50px auto;
+}
+
+.wrapper {
+    width: 1240px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 17px;
+    border: 1px solid #707070;
+}
+
+.fav-title {
+    margin: 20px;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.drops {
+    display: flex;
+}
+
+.dropdown {
+    display: flex;
+    margin: 20px 0px 20px 20px;
+    height: 45px;
+    padding: 5px;
+    background: #F2F2F2;
+    border-radius: 13px;
+    border: 1px solid #707070;
+}
+
+.drop-new {
+    width: 220px;
+}
+
+.drop-cost {
+    width: 150px;
+}
+
+.drop-cat {
+    width: 200px;
+}
+
+.text-div {
+    display: flex;
+    margin: auto;
+}
+
+.dropdown-text {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.arrow {
+    margin: auto 0;
+}
+
+hr {
+    width: 1200px;
+    margin: 20px;
+}
+
+.cart-button {
+    margin: 10px auto;
+    width: 220px;
+    height: 45px;
+    padding-top: 10px;
+    background: #12B75C;
+    border-radius: 13px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cart-button-text {
+    margin-top: auto;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+}
+
+.rec-items-wrap {
+    display: flex;
+}
+
+.item-full {
+    text-align: center;
+}
+
+.del-text {
+    margin: 5px 0;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FF0000;
+}
+
+.rec-items-elem {
+    background: #F2F2F2;
+    width: 220px;
+    margin: 0 14px;
+    height: 270px;
+    border: 1px solid #707070;
+    border-radius: 13px;
+}
+
+.rec-items-img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 13px;
+    height: 170px;
+}
+
+.rec-items-text {
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.cost-fav {
+    width: 100px;
+    display: flex;
+    margin: auto;
+}
+
+.fav-green {
+    width: 30px;
+    margin: auto;
+}

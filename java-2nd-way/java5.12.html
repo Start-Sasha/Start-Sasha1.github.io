@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица зависимости плотности воздуха от высоты</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        const p0 = 1.29; // Плотность на уровне моря
+        const z = 1.25e-4; // Коэффициент
+        document.writeln("<h2>Таблица зависимости плотности воздуха от высоты:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>Высота (м)</th><th>Плотность (кг/м³)</th></tr>");
+        for (let h = 0; h <= 1000; h += 100) {
+            let p = p0 * Math.exp(-z * h);
+            document.writeln("<tr><td>" + h + "</td><td>" + p.toFixed(4) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

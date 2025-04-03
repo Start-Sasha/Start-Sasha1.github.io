@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Значения z</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        document.writeln("<h2>Значения z:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>a</th><th>z</th></tr>");
+        for (let a = 2; a <= 17; a++) {
+            let t = 3 * a;
+            let z = 4.3 * t * t - 8 * t + 13;
+            document.writeln("<tr><td>" + a + "</td><td>" + z.toFixed(2) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

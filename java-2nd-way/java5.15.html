@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица умножения на число n</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt("Введите число n (1 ≤ n ≤ 9):"));
+        document.writeln("<h2>Таблица умножения на число " + n + ":</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>Число</th><th>Результат</th></tr>");
+        for (let i = 1; i <= 9; i++) {
+            let number = i;
+            let result = i * n;
+            document.writeln("<tr><td>" + n + " × " + number + "</td><td>" + result + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('img/background.jpeg'); /* Путь к фоновому изображению */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    padding: 3%;
+    border-radius: 15px;
+    width: 95%;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 530px;
+}
+
+h1 {
+    color: #75bcf2;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #40a1eb;
+    margin-bottom: 10px;
+}
+
+img {
+    display: block;
+    width: 70%;
+    margin: auto;
+}

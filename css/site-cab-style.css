@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #F2FFFF;
+}
+
+header {
+    background: #12B75C;
+}
+
+.header {
+    display: flex;
+    background: #12B75C;
+    margin: auto;
+    width: 1280px;
+    height: 78px;
+}
+
+.logo {
+    height: 70px;
+    margin: auto;
+}
+
+.search {
+    background: #fff;
+    border-radius: 13px;
+    height: 40px;
+    width: 750px;
+    margin: auto;
+}
+
+.search-text {
+    margin: 10px;
+    color: #808080;
+    font-size: 16px;
+}
+
+#header-img {
+    height: 45px;
+    margin: auto;
+}
+
+.page {
+    width: 1280px;
+    margin: 50px auto;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.item {
+    background: #fff;
+    border-radius: 17px;
+    border: 1px solid #707070;
+    width: 100%;
+}
+
+#info {
+    width: 400px;
+    height: 650px;
+}
+
+.wrap-wrap-wrapper {
+    display: flex;
+}
+
+#wrap-fav, #wrap-bag {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    align-items: center;
+    margin-left: 10%;
+    width: 440px;
+    height: 80px;
+}
+
+#support {
+    margin-top: 3vw;
+    margin-left: 10%;
+    width: 800px;
+    height: 150px;
+}
+
+#rec-items {
+    margin-top: 3vw;
+    margin-left: 10%;
+    width: 800px;
+    height: 300px;
+}
+
+.prof-info {
+    display: flex;
+    align-items: center;
+}
+
+.prof-img {
+    margin: 15px;
+}
+
+.prof-name {
+    margin: 20px;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.info-title {
+    margin: 20px;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.info-green {
+    margin: 20px 20px 40px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #12B75C;
+}
+
+.wrap-text {
+    margin: 20px;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.support-button {
+    margin: 10px auto;
+    width: 300px;
+    height: 50px;
+    padding-top: 10px;
+    background: #12B75C;
+    border-radius: 13px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.support-button-text {
+    margin-top: auto;
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+}
+
+.rec-items-wrap {
+    display: flex;
+}
+
+.rec-items-elem {
+    background: #F2F2F2;
+    width: 170px;
+    margin: 0 20px;
+    height: 200px;
+    border: 1px solid #707070;
+    border-radius: 13px;
+}
+
+.rec-items-img {
+    display: block;
+    margin: 10px auto;
+    border-radius: 13px;
+    height: 125px;
+}
+
+.rec-items-text {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+}

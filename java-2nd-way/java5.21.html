@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица стоимости сыра</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        let pricePerKg = parseFloat(prompt("Введите стоимость 1 кг сыра (рубли):"));
+        document.writeln("<h2>Таблица стоимости сыра:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>Вес (г)</th><th>Стоимость (рубли)</th></tr>");
+        for (let weight = 50; weight <= 1000; weight += 50) {
+            let cost = (weight / 1000) * pricePerKg;
+            document.writeln("<tr><td>" + weight + "</td><td>" + cost.toFixed(2) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

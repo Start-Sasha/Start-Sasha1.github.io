@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица перевода дюймов в сантиметры</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        document.writeln("<h2>Таблица перевода дюймов в сантиметры:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>Дюймы</th><th>Сантиметры</th></tr>");
+        for (let i = 10; i <= 22; i++) {
+            let inches = i;
+            let centimeters = i * 2.54; // 1 дюйм = 2.54 см
+            document.writeln("<tr><td>" + inches + "</td><td>" + centimeters.toFixed(2) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

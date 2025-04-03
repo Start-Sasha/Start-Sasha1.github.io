@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Числа 3,2 - 3,9</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        document.writeln("<h2>Числа 3,2 - 3,9:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>Число</th></tr>");
+        for (let i = 3.2; i <= 4; i += 0.1) {
+            document.writeln("<tr><td>" + i.toFixed(1) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

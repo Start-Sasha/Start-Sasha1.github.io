@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица умножения на 9</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        document.writeln("<h2>Таблица умножения на 9:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>Число</th><th>Результат</th></tr>");
+        for (let i = 1; i <= 9; i++) {
+            let number = i;
+            let result = i * 9;
+            document.writeln("<tr><td>9 × " + number + "</td><td>" + result + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

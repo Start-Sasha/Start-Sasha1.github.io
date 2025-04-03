@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Значения y</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        document.writeln("<h2>Значения y:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>x</th><th>y</th></tr>");
+        for (let x = 4; x <= 28; x++) {
+            let t = x + 3;
+            let y = 3 * t * t + 4.87 * t - 3;
+            document.writeln("<tr><td>" + x + "</td><td>" + y.toFixed(2) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>

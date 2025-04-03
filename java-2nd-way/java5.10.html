@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица перевода долларов в рубли</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        let exchangeRate = parseFloat(prompt("Введите курс доллара (рубли за 1 доллар):"));
+        document.writeln("<h2>Таблица перевода долларов в рубли:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>Доллары</th><th>Рубли</th></tr>");
+        for (let i = 1; i <= 20; i++) {
+            let dollars = i;
+            let rubles = i * exchangeRate;
+            document.writeln("<tr><td>" + dollars + "</td><td>" + rubles.toFixed(2) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Значения sin</title>
+    <linK rel="stylesheet" href="java-2nd-way-style.css">
+</head>
+<body>
+    <script>
+        document.writeln("<h2>Значения sin:</h2>");
+        document.writeln("<table border='1'>");
+        document.writeln("<tr><th>x</th><th>sin(x)</th></tr>");
+        for (let i = 2; i <= 15; i++) {
+            let sinValue = Math.sin(i);
+            document.writeln("<tr><td>" + i + "</td><td>" + sinValue.toFixed(4) + "</td></tr>");
+        }
+        document.writeln("</table>");
+    </script>
+</body>
+</html>
